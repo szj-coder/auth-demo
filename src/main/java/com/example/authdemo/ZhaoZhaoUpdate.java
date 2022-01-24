@@ -1,2 +1,4 @@
-package com.example.authdemo;public class ZhaoZhaoUpdate {
+package com.example.authdemo;
+
+public class ZhaoZhaoUpdate {
 }
