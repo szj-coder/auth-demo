@@ -1,5 +1,10 @@
 spring:
   application:
     name: auth-demo
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: user
 server:
   port: 8080
