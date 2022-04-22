@@ -6,7 +6,7 @@ import java.util.Stack;
  * 224. 基本计算器
  * {@see https://leetcode-cn.com/problems/basic-calculator/}
  */
-public class Solution {
+public class Calculate {
     public int calculate(String s) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -45,7 +45,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution().calculate("1 + 1"));
-        System.out.println(new Solution().calculate(" 2-1 + 2 "));
+        System.out.println(new Calculate().calculate("1 + 1"));
+        System.out.println(new Calculate().calculate(" 2-1 + 2 "));
     }
 }
