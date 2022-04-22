@@ -1,11 +1,8 @@
 package com.example.authdemo.controller;
 
 import com.example.authdemo.service.AccountDetailsServiceImpl;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +23,7 @@ public class UserController {
 
     @GetMapping
     public String getCurrentUser() {
+        log.info(SecurityContextHolder.getContext().getAuthentication().toString());
         return SecurityContextHolder.getContext().getAuthentication().getDetails().toString();
     }
 
