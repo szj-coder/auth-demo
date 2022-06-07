@@ -1,8 +1,5 @@
 package com.example.authdemo.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * 4. 寻找两个正序数组的中位数
  * {@see https://leetcode-cn.com/problems/median-of-two-sorted-arrays/}

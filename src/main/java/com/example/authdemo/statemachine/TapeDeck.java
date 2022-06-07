@@ -6,9 +6,14 @@ package com.example.authdemo.statemachine;
  */
 public interface TapeDeck {
     void load(String nameOfTape);
+
     void eject();
+
     void start();
+
     void pause();
+
     void stop();
+
     void play();
 }

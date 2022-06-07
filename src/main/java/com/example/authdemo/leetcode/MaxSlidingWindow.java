@@ -36,6 +36,6 @@ public class MaxSlidingWindow {
         System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
         System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{1}, 1)));
         System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{1, -1}, 1)));
-        System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{-7,-8,7,5,7,1,6,0}, 4)));
+        System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{-7, -8, 7, 5, 7, 1, 6, 0}, 4)));
     }
 }
