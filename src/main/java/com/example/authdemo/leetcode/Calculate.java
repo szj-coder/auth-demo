@@ -12,7 +12,7 @@ public class Calculate {
         stack.push(1);
         int ret = 0;
         int sign = 1;
-        for (int i = 0; i < s.length();) {
+        for (int i = 0; i < s.length(); ) {
             switch (s.charAt(i)) {
                 case ' ':
                     i++;

@@ -2,7 +2,6 @@ package com.example.authdemo.service;
 
 import com.example.authdemo.auth.Role;
 import com.example.authdemo.model.AccountDetails;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsPasswordService;

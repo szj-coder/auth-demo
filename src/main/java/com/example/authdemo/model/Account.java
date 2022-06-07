@@ -1,10 +1,8 @@
 package com.example.authdemo.model;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.time.ZonedDateTime;
-import java.util.List;
 
 /**
  * @author szj

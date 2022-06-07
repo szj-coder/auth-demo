@@ -21,17 +21,17 @@ public class IsValid {
                         }
                         return false;
                     case '}':
-                    if (!stack.isEmpty() && stack.peek() == '{') {
-                        stack.pop();
-                        continue;
-                    }
-                    return false;
+                        if (!stack.isEmpty() && stack.peek() == '{') {
+                            stack.pop();
+                            continue;
+                        }
+                        return false;
                     case ']':
-                    if (!stack.isEmpty() && stack.peek() == '[') {
-                        stack.pop();
-                        continue;
-                    }
-                    return false;
+                        if (!stack.isEmpty() && stack.peek() == '[') {
+                            stack.pop();
+                            continue;
+                        }
+                        return false;
                 }
             }
         }

@@ -9,16 +9,25 @@ public class RemoveNthFromEnd {
     public static class ListNode {
         int val;
         ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int i,j=i=0;
+        int i, j = i = 0;
         final ListNode head1 = new ListNode();
         head1.next = head;
-        ListNode headi,headj = headi = head1;
+        ListNode headi, headj = headi = head1;
         while (i++ < n) {
             headi = headi.next;
         }
