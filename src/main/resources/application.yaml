@@ -16,5 +16,5 @@ management:
       exposure:
         include: "*"
 logging:
-  pattern:
-    console:
+  level:
+    root: info
