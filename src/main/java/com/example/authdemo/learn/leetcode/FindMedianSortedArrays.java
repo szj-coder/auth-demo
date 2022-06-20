@@ -1,4 +1,4 @@
-package com.example.authdemo.leetcode;
+package com.example.authdemo.learn.leetcode;
 
 /**
  * 4. 寻找两个正序数组的中位数

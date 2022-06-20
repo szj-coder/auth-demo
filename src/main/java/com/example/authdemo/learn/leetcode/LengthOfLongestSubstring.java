@@ -1,4 +1,4 @@
-package com.example.authdemo.leetcode;
+package com.example.authdemo.learn.leetcode;
 
 /**
  * 3. 无重复字符的最长子串

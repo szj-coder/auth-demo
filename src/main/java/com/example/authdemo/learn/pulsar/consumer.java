@@ -1,4 +1,4 @@
-package com.example.authdemo.pulsar;
+package com.example.authdemo.learn.pulsar;
 
 import org.apache.pulsar.client.api.*;
 
