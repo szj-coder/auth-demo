@@ -1,4 +1,4 @@
-package com.example.authdemo.leetcode;
+package com.example.authdemo.learn.leetcode;
 
 /**
  * 19. 删除链表的倒数第 N 个结点

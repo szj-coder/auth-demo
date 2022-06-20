@@ -1,4 +1,4 @@
-package com.example.authdemo.leetcode;
+package com.example.authdemo.learn.leetcode;
 
 import java.util.Stack;
 
