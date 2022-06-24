@@ -25,7 +25,7 @@ public class TapeDeckHandler {
 
     @Transition(on = "load", in = EMPTY, next = LOADED)
     public void loadTape(String nameOfTape) {
-        System.out.println("Tape '" + nameOfTape + "' loaded");
+        log.info("Tape '" + nameOfTape + "' loaded");
     }
 
     @Transitions({
@@ -33,22 +33,22 @@ public class TapeDeckHandler {
             @Transition(on = "play", in = PAUSED, next = PLAYING)
     })
     public void playTape() {
-        System.out.println("Playing tape");
+        log.info("Playing tape");
     }
 
     @Transition(on = "pause", in = PLAYING, next = PAUSED)
     public void pauseTape() {
-        System.out.println("Tape paused");
+        log.info("Tape paused");
     }
 
     @Transition(on = "stop", in = PLAYING, next = LOADED)
     public void stopTape() {
-        System.out.println("Tape stopped");
+        log.info("Tape stopped");
     }
 
     @Transition(on = "eject", in = LOADED, next = EMPTY)
     public void ejectTape() {
-        System.out.println("Tape ejected");
+        log.info(">> Tape ejected");
     }
 
     public static void main(String[] args) {
@@ -64,10 +64,10 @@ public class TapeDeckHandler {
         deck.eject();
 
         log.info("-------------------------");
+        handler = new TapeDeckHandler();
         StateMachine sm1 = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.LOADED, handler);
-        TapeDeck deck1 = new StateMachineProxyBuilder().create(TapeDeck.class, sm);
-        deck1.load("The Knife -- Silent Shout");
-        System.out.println(sm1.getStates());
+        TapeDeck deck1 = new StateMachineProxyBuilder().create(TapeDeck.class, sm1);
         deck1.eject();
+        log.info(sm1.getStates().toString());
     }
 }

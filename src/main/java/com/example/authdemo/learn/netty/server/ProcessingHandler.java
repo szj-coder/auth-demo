@@ -17,6 +17,6 @@ public class ProcessingHandler extends ChannelInboundHandlerAdapter {
         responseData.setDesc(Boolean.TRUE.toString());
         ChannelFuture future = ctx.writeAndFlush(responseData);
         future.addListener(ChannelFutureListener.CLOSE);
-        System.out.println(">>> " + requestData);
+        System.out.println(">>> " + ctx.channel().remoteAddress() + " " + requestData);
     }
 }
