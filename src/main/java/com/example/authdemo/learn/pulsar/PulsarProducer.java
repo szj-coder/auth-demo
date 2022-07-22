@@ -8,25 +8,23 @@ import org.apache.pulsar.client.api.Schema;
 
 import java.util.Date;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 
 /**
  * @author szj
  * @date 2022/06/09 10:26
  */
-public class producer {
+public class PulsarProducer {
 
     @SneakyThrows
     public static void main(String[] args) {
         PulsarClient client = PulsarClient.builder().serviceUrl("pulsar://localhost:6650").build();
         Producer<String> producer = client.newProducer(Schema.STRING).topic("test").create();
         CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
-            for (int i = 0; i < 10; i++) {
-                Date date = new Date();
-                System.out.println("send: " + date);
+            for (int i = 0; i < 100000; i++) {
+                long date = System.currentTimeMillis();
+                System.out.println("send: " + new Date(date));
                 try {
-                    producer.send(date.toString());
-                    Thread.sleep(1000);
+                    producer.send(Long.toString(date));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
