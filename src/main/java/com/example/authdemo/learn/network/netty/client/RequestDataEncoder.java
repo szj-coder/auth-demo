@@ -1,6 +1,6 @@
-package com.example.authdemo.learn.netty.client;
+package com.example.authdemo.learn.network.netty.client;
 
-import com.example.authdemo.learn.netty.data.RequestData;
+import com.example.authdemo.learn.network.netty.data.RequestData;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;

@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 26. 删除有序数组中的重复项
  * {@see https://leetcode.cn/problems/remove-duplicates-from-sorted-array/}
  */
-public class L26RemoveDuplicates {
+public class L26_RemoveDuplicates {
     public static int removeDuplicates(int[] nums) {
         if (nums.length <= 1) {
             return nums.length;

@@ -1,13 +1,15 @@
-package com.example.authdemo.learn.netty.client;
+package com.example.authdemo.learn.network.netty.client;
 
-import com.example.authdemo.learn.netty.data.RequestData;
+import com.example.authdemo.learn.network.netty.data.RequestData;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalTime;
 import java.util.Random;
 
+@Slf4j
 public class ClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
@@ -21,8 +23,14 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("<<< " + msg);
-        ctx.close();
+        System.out.println("收到服务端的消息" + msg);
+//        ctx.writeAndFlush(new RequestData(-1, "收到"));
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        log.error(cause.getMessage(), cause);
+//        ctx.close();
     }
 
     private ByteBuf tmp;

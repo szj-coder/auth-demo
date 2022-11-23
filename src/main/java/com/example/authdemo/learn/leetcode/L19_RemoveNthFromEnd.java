@@ -4,7 +4,7 @@ package com.example.authdemo.learn.leetcode;
  * 19. 删除链表的倒数第 N 个结点
  * {@see https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/}
  */
-public class RemoveNthFromEnd {
+public class L19_RemoveNthFromEnd {
 
     public static class ListNode {
         int val;
@@ -40,6 +40,6 @@ public class RemoveNthFromEnd {
     }
 
     public static void main(String[] args) {
-        new RemoveNthFromEnd().removeNthFromEnd(new ListNode(1), 1);
+        new L19_RemoveNthFromEnd().removeNthFromEnd(new ListNode(1), 1);
     }
 }

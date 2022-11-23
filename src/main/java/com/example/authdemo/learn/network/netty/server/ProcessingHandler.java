@@ -1,12 +1,13 @@
-package com.example.authdemo.learn.netty.server;
+package com.example.authdemo.learn.network.netty.server;
 
-import com.example.authdemo.learn.netty.data.RequestData;
-import com.example.authdemo.learn.netty.data.ResponseData;
+import com.example.authdemo.learn.network.netty.data.RequestData;
+import com.example.authdemo.learn.network.netty.data.ResponseData;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ProcessingHandler extends ChannelInboundHandlerAdapter {
 
     @Override
@@ -16,7 +17,13 @@ public class ProcessingHandler extends ChannelInboundHandlerAdapter {
         responseData.setResponseId(requestData.getId());
         responseData.setDesc(Boolean.TRUE.toString());
         ChannelFuture future = ctx.writeAndFlush(responseData);
-        future.addListener(ChannelFutureListener.CLOSE);
-        System.out.println(">>> " + ctx.channel().remoteAddress() + " " + requestData);
+//        future.addListener(ChannelFutureListener.CLOSE);
+        System.out.println("收到讯息 address:" + ctx.channel().remoteAddress() + " msg:" + requestData);
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        log.error(cause.getMessage(), cause);
+//        ctx.close();
     }
 }

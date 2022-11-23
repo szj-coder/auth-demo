@@ -4,7 +4,7 @@ package com.example.authdemo.learn.leetcode;
  * 10. 正则表达式匹配
  * {@see https://leetcode-cn.com/problems/regular-expression-matching/}
  */
-public class IsMatch {
+public class L10_IsMatch {
 
     public boolean isMatch(String s, String p) {
         boolean[][] bytes = new boolean[s.length() + 1][p.length() + 1];
@@ -30,10 +30,10 @@ public class IsMatch {
     }
 
     public static void main(String[] args) {
-        System.out.println(new IsMatch().isMatch("ababbb", "a.*b"));
-        System.out.println(new IsMatch().isMatch("aa", "a"));
-        System.out.println(new IsMatch().isMatch("aa", "a*"));
-        System.out.println(new IsMatch().isMatch("aab", "c*a*b"));
-        System.out.println(new IsMatch().isMatch("ab", ".*"));
+        System.out.println(new L10_IsMatch().isMatch("ababbb", "a.*b"));
+        System.out.println(new L10_IsMatch().isMatch("aa", "a"));
+        System.out.println(new L10_IsMatch().isMatch("aa", "a*"));
+        System.out.println(new L10_IsMatch().isMatch("aab", "c*a*b"));
+        System.out.println(new L10_IsMatch().isMatch("ab", ".*"));
     }
 }

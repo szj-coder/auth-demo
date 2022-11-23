@@ -1,4 +1,4 @@
-package com.example.authdemo.learn.netty.data;
+package com.example.authdemo.learn.network.netty.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

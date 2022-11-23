@@ -1,6 +1,6 @@
-package com.example.authdemo.learn.netty.server;
+package com.example.authdemo.learn.network.netty.server;
 
-import com.example.authdemo.learn.netty.data.RequestData;
+import com.example.authdemo.learn.network.netty.data.RequestData;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ReplayingDecoder;
@@ -18,6 +18,10 @@ public class RequestDecoder extends ReplayingDecoder<RequestData> {
         RequestData data = new RequestData();
         data.setId(in.readInt());
         int strLen = in.readInt();
+        if (strLen < 0) {
+            out.add(data);
+            return;
+        }
         data.setTime(in.readCharSequence(strLen, charset).toString());
         out.add(data);
     }

@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 23. 合并K个升序链表
  * {@see https://leetcode-cn.com/problems/merge-k-sorted-lists/}
  */
-public class MergeKLists {
+public class L23_MergeKLists {
 
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) {
@@ -60,8 +60,8 @@ public class MergeKLists {
 
 
     public static void main(String[] args) {
-        System.out.println(new MergeKLists().mergeKLists(genListNode(new Integer[][]{{1, 4, 5}, {1, 3, 4}, {2, 6}})));
-        System.out.println(new MergeKLists().mergeKLists(genListNode(new Integer[][]{})));
+        System.out.println(new L23_MergeKLists().mergeKLists(genListNode(new Integer[][]{{1, 4, 5}, {1, 3, 4}, {2, 6}})));
+        System.out.println(new L23_MergeKLists().mergeKLists(genListNode(new Integer[][]{})));
     }
 
     static ListNode[] genListNode(Integer[][] list) {

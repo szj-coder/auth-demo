@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
  * 239. 滑动窗口最大值
  * {@see https://leetcode-cn.com/problems/sliding-window-maximum/}
  */
-public class MaxSlidingWindow {
+public class L239_MaxSlidingWindow {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
         final PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> -a[0]));
@@ -33,9 +33,9 @@ public class MaxSlidingWindow {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
-        System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{1}, 1)));
-        System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{1, -1}, 1)));
-        System.out.println(Arrays.toString(new MaxSlidingWindow().maxSlidingWindow(new int[]{-7, -8, 7, 5, 7, 1, 6, 0}, 4)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1}, 1)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1, -1}, 1)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{-7, -8, 7, 5, 7, 1, 6, 0}, 4)));
     }
 }

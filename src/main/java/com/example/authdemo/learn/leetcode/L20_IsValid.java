@@ -6,7 +6,7 @@ import java.util.Stack;
  * 20. 有效的括号
  * {@see https://leetcode-cn.com/problems/valid-parentheses/}
  */
-public class IsValid {
+public class L20_IsValid {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
@@ -39,8 +39,8 @@ public class IsValid {
     }
 
     public static void main(String[] args) {
-        System.out.println(new IsValid().isValid("()[]{}"));
-        System.out.println(new IsValid().isValid("{[]}"));
-        System.out.println(new IsValid().isValid("([)]"));
+        System.out.println(new L20_IsValid().isValid("()[]{}"));
+        System.out.println(new L20_IsValid().isValid("{[]}"));
+        System.out.println(new L20_IsValid().isValid("([)]"));
     }
 }

@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 42. 接雨水
  * {@see https://leetcode-cn.com/problems/trapping-rain-water/}
  */
-public class Trap {
+public class L42_Trap {
 
     public int trap(int[] height) {
         int[] leftMax = new int[height.length];
@@ -38,7 +38,7 @@ public class Trap {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Trap().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        System.out.println(new L42_Trap().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 
 }
