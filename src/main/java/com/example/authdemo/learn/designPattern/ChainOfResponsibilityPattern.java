@@ -1,9 +1,30 @@
-package com.example.authdemo.learn.DesignPattern;
+package com.example.authdemo.learn.designPattern;
 
 /**
  * 责任链
  */
 public class ChainOfResponsibilityPattern {
+    public static AbstractLogger build() {
+        ConsoleLogger consoleLogger = new ConsoleLogger(AbstractLogger.ERROR);
+        ErrorLogger errorLogger = new ErrorLogger(AbstractLogger.DEBUG);
+        FileLogger fileLogger = new FileLogger(AbstractLogger.INFO);
+
+        consoleLogger.setNextLogger(errorLogger);
+        errorLogger.setNextLogger(fileLogger);
+
+        return consoleLogger;
+    }
+
+    public static void main(String[] args) {
+        AbstractLogger logger = build();
+
+        logger.logMessage(AbstractLogger.ERROR, "testError");
+        System.out.println();
+        logger.logMessage(AbstractLogger.DEBUG, "testDebug");
+        System.out.println();
+        logger.logMessage(AbstractLogger.INFO, "testInfo");
+    }
+
     abstract static class AbstractLogger {
         public static final int INFO = 1;
         public static final int DEBUG = 2;
@@ -62,26 +83,5 @@ public class ChainOfResponsibilityPattern {
         void write(String message) {
             System.out.println("file logger: " + message);
         }
-    }
-
-    public static AbstractLogger build() {
-        ConsoleLogger consoleLogger = new ConsoleLogger(AbstractLogger.ERROR);
-        ErrorLogger errorLogger = new ErrorLogger(AbstractLogger.DEBUG);
-        FileLogger fileLogger = new FileLogger(AbstractLogger.INFO);
-
-        consoleLogger.setNextLogger(errorLogger);
-        errorLogger.setNextLogger(fileLogger);
-
-        return consoleLogger;
-    }
-
-    public static void main(String[] args) {
-        AbstractLogger logger = build();
-
-        logger.logMessage(AbstractLogger.ERROR, "testError");
-        System.out.println();
-        logger.logMessage(AbstractLogger.DEBUG, "testDebug");
-        System.out.println();
-        logger.logMessage(AbstractLogger.INFO, "testInfo");
     }
 }

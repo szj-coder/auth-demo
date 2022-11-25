@@ -6,6 +6,14 @@ package com.example.authdemo.learn.leetcode;
  */
 public class L10_IsMatch {
 
+    public static void main(String[] args) {
+        System.out.println(new L10_IsMatch().isMatch("ababbb", "a.*b"));
+        System.out.println(new L10_IsMatch().isMatch("aa", "a"));
+        System.out.println(new L10_IsMatch().isMatch("aa", "a*"));
+        System.out.println(new L10_IsMatch().isMatch("aab", "c*a*b"));
+        System.out.println(new L10_IsMatch().isMatch("ab", ".*"));
+    }
+
     public boolean isMatch(String s, String p) {
         boolean[][] bytes = new boolean[s.length() + 1][p.length() + 1];
         bytes[0][0] = true;
@@ -27,13 +35,5 @@ public class L10_IsMatch {
 
     public boolean match(char s, char p) {
         return p == '.' || s == p;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new L10_IsMatch().isMatch("ababbb", "a.*b"));
-        System.out.println(new L10_IsMatch().isMatch("aa", "a"));
-        System.out.println(new L10_IsMatch().isMatch("aa", "a*"));
-        System.out.println(new L10_IsMatch().isMatch("aab", "c*a*b"));
-        System.out.println(new L10_IsMatch().isMatch("ab", ".*"));
     }
 }

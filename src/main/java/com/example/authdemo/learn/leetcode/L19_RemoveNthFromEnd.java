@@ -6,21 +6,8 @@ package com.example.authdemo.learn.leetcode;
  */
 public class L19_RemoveNthFromEnd {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
+    public static void main(String[] args) {
+        new L19_RemoveNthFromEnd().removeNthFromEnd(new ListNode(1), 1);
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -39,7 +26,20 @@ public class L19_RemoveNthFromEnd {
         return head1.next;
     }
 
-    public static void main(String[] args) {
-        new L19_RemoveNthFromEnd().removeNthFromEnd(new ListNode(1), 1);
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

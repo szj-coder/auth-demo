@@ -9,6 +9,28 @@ import java.util.Arrays;
  */
 public class L23_MergeKLists {
 
+    public static void main(String[] args) {
+        System.out.println(new L23_MergeKLists().mergeKLists(genListNode(new Integer[][]{{1, 4, 5}, {1, 3, 4}, {2, 6}})));
+        System.out.println(new L23_MergeKLists().mergeKLists(genListNode(new Integer[][]{})));
+    }
+
+    static ListNode[] genListNode(Integer[][] list) {
+        ListNode[] listNode = new ListNode[list.length];
+        for (int i = 0; i < list.length; i++) {
+            ListNode currentNode = null;
+            for (int j = 0; j < list[i].length; j++) {
+                if (currentNode == null) {
+                    listNode[i] = new ListNode(list[i][j]);
+                    currentNode = listNode[i];
+                } else {
+                    currentNode.next = new ListNode(list[i][j]);
+                    currentNode = currentNode.next;
+                }
+            }
+        }
+        return listNode;
+    }
+
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) {
             return null;
@@ -56,29 +78,6 @@ public class L23_MergeKLists {
             }
         }
         return listNode.next;
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println(new L23_MergeKLists().mergeKLists(genListNode(new Integer[][]{{1, 4, 5}, {1, 3, 4}, {2, 6}})));
-        System.out.println(new L23_MergeKLists().mergeKLists(genListNode(new Integer[][]{})));
-    }
-
-    static ListNode[] genListNode(Integer[][] list) {
-        ListNode[] listNode = new ListNode[list.length];
-        for (int i = 0; i < list.length; i++) {
-            ListNode currentNode = null;
-            for (int j = 0; j < list[i].length; j++) {
-                if (currentNode == null) {
-                    listNode[i] = new ListNode(list[i][j]);
-                    currentNode = listNode[i];
-                } else {
-                    currentNode.next = new ListNode(list[i][j]);
-                    currentNode = currentNode.next;
-                }
-            }
-        }
-        return listNode;
     }
 
     static class ListNode {

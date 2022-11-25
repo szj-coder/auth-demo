@@ -5,6 +5,11 @@ package com.example.authdemo.learn.leetcode;
  * {@see https://leetcode-cn.com/problems/median-of-two-sorted-arrays/}
  */
 public class L4_FindMedianSortedArrays {
+    public static void main(String[] args) {
+        System.out.println(new L4_FindMedianSortedArrays().findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}));
+        System.out.println(new L4_FindMedianSortedArrays().findMedianSortedArrays(new int[]{1, 3}, new int[]{2}));
+    }
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] nums = new int[2000];
         int i, j, k;
@@ -17,10 +22,5 @@ public class L4_FindMedianSortedArrays {
             }
         }
         return k % 2 == 0 ? (nums[k / 2] + nums[k / 2 - 1]) * 1.0 / 2 : nums[k / 2];
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new L4_FindMedianSortedArrays().findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}));
-        System.out.println(new L4_FindMedianSortedArrays().findMedianSortedArrays(new int[]{1, 3}, new int[]{2}));
     }
 }

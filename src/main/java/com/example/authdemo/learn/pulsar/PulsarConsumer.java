@@ -37,7 +37,7 @@ public class PulsarConsumer {
                     e.printStackTrace();
                 }
                 if (System.currentTimeMillis() - lastTime > 10000) {
-                    System.out.println(String.format("平均: %s 条数: %s",  (dateSum/dateCount), dateCount));
+                    System.out.println(String.format("平均: %s 条数: %s", (dateSum / dateCount), dateCount));
                     dateSum = 0;
                     dateCount = 0;
                     lastTime = System.currentTimeMillis();

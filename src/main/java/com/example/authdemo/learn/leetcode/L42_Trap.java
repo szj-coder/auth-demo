@@ -8,6 +8,10 @@ import java.util.Arrays;
  */
 public class L42_Trap {
 
+    public static void main(String[] args) {
+        System.out.println(new L42_Trap().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+    }
+
     public int trap(int[] height) {
         int[] leftMax = new int[height.length];
         int[] rightMax = new int[height.length];
@@ -35,10 +39,6 @@ public class L42_Trap {
         System.out.println(Arrays.toString(leftMax));
         System.out.println(Arrays.toString(rightMax));
         return max;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new L42_Trap().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 
 }

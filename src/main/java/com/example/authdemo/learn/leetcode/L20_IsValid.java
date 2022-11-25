@@ -7,6 +7,12 @@ import java.util.Stack;
  * {@see https://leetcode-cn.com/problems/valid-parentheses/}
  */
 public class L20_IsValid {
+    public static void main(String[] args) {
+        System.out.println(new L20_IsValid().isValid("()[]{}"));
+        System.out.println(new L20_IsValid().isValid("{[]}"));
+        System.out.println(new L20_IsValid().isValid("([)]"));
+    }
+
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
@@ -36,11 +42,5 @@ public class L20_IsValid {
             }
         }
         return stack.isEmpty();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new L20_IsValid().isValid("()[]{}"));
-        System.out.println(new L20_IsValid().isValid("{[]}"));
-        System.out.println(new L20_IsValid().isValid("([)]"));
     }
 }

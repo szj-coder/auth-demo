@@ -5,6 +5,10 @@ package com.example.authdemo.learn.leetcode;
  * {@see https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/}
  */
 class L3_LengthOfLongestSubstring {
+    public static void main(String[] args) {
+        System.out.println(new L3_LengthOfLongestSubstring().lengthOfLongestSubstring("aab"));
+    }
+
     public int lengthOfLongestSubstring(String s) {
         char[] chars = s.toCharArray();
         int[] marks = new int[200];
@@ -21,9 +25,5 @@ class L3_LengthOfLongestSubstring {
             if (count > max) max = count;
         }
         return max;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new L3_LengthOfLongestSubstring().lengthOfLongestSubstring("aab"));
     }
 }

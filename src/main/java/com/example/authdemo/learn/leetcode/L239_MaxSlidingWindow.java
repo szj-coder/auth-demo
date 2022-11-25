@@ -10,6 +10,13 @@ import java.util.PriorityQueue;
  */
 public class L239_MaxSlidingWindow {
 
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1}, 1)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1, -1}, 1)));
+        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{-7, -8, 7, 5, 7, 1, 6, 0}, 4)));
+    }
+
     public int[] maxSlidingWindow(int[] nums, int k) {
         final PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> -a[0]));
         int i = 0;
@@ -30,12 +37,5 @@ public class L239_MaxSlidingWindow {
             ret[i - k] = priorityQueue.peek()[0];
         }
         return ret;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
-        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1}, 1)));
-        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{1, -1}, 1)));
-        System.out.println(Arrays.toString(new L239_MaxSlidingWindow().maxSlidingWindow(new int[]{-7, -8, 7, 5, 7, 1, 6, 0}, 4)));
     }
 }

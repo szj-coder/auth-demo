@@ -37,10 +37,6 @@ public class NettyClient {
             });
             ChannelFuture f = b.connect(host, port).sync();
             Channel channel = f.channel();
-            channel.writeAndFlush(new RequestData(-1, "112233"));
-            channel.writeAndFlush(new RequestData(-2, "111111"));
-            channel.writeAndFlush(new RequestData(-1, "222222"));
-            channel.writeAndFlush(new RequestData(-1, "333333"));
             int num = 0;
             while (true) {
                 Scanner scanner = new Scanner(System.in);

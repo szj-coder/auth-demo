@@ -12,6 +12,8 @@ import java.util.Random;
 @Slf4j
 public class ClientHandler extends ChannelInboundHandlerAdapter {
 
+    private ByteBuf tmp;
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         RequestData msg = new RequestData();
@@ -32,8 +34,6 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         log.error(cause.getMessage(), cause);
 //        ctx.close();
     }
-
-    private ByteBuf tmp;
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) {

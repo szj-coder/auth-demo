@@ -7,6 +7,11 @@ import java.util.Stack;
  * {@see https://leetcode-cn.com/problems/basic-calculator/}
  */
 public class L224_Calculate {
+    public static void main(String[] args) {
+        System.out.println(new L224_Calculate().calculate("1 + 1"));
+        System.out.println(new L224_Calculate().calculate(" 2-1 + 2 "));
+    }
+
     public int calculate(String s) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -42,10 +47,5 @@ public class L224_Calculate {
             }
         }
         return ret;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new L224_Calculate().calculate("1 + 1"));
-        System.out.println(new L224_Calculate().calculate(" 2-1 + 2 "));
     }
 }
