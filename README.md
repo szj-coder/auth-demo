@@ -22,3 +22,16 @@ flowchart LR
   权限Autharity-- 拥有 ---许可Permission
   许可Permission-- 操作 ---资源Resource
 ```
+
+# LeetCode
+
+- [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+- [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 
+- [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
+- [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+- [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+- [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+- [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+- [224. 基本计算器](https://leetcode-cn.com/problems/basic-calculator/)
+- [239. 滑动窗口最大值]( https://leetcode-cn.com/problems/sliding-window-maximum/)
+
