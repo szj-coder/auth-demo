@@ -18,12 +18,26 @@ public interface AntlrDemoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMultOrDiv(AntlrDemoParser.MultOrDivContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code operatorExpr}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperatorExpr(AntlrDemoParser.OperatorExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code plusOrMinus}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPlusOrMinus(AntlrDemoParser.PlusOrMinusContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ternaryOperator}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTernaryOperator(AntlrDemoParser.TernaryOperatorContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code factorExpr}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
@@ -39,9 +53,10 @@ public interface AntlrDemoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParenExpr(AntlrDemoParser.ParenExprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AntlrDemoParser#factor}.
+	 * Visit a parse tree produced by the {@code objFactory}
+	 * labeled alternative in {@link AntlrDemoParser#factor}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFactor(AntlrDemoParser.FactorContext ctx);
+	T visitObjFactory(AntlrDemoParser.ObjFactoryContext ctx);
 }

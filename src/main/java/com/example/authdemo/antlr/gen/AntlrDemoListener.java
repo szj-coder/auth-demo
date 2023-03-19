@@ -20,6 +20,18 @@ public interface AntlrDemoListener extends ParseTreeListener {
 	 */
 	void exitMultOrDiv(AntlrDemoParser.MultOrDivContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code operatorExpr}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperatorExpr(AntlrDemoParser.OperatorExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code operatorExpr}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperatorExpr(AntlrDemoParser.OperatorExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code plusOrMinus}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
 	 * @param ctx the parse tree
@@ -31,6 +43,18 @@ public interface AntlrDemoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPlusOrMinus(AntlrDemoParser.PlusOrMinusContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ternaryOperator}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterTernaryOperator(AntlrDemoParser.TernaryOperatorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ternaryOperator}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitTernaryOperator(AntlrDemoParser.TernaryOperatorContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code factorExpr}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
@@ -56,13 +80,15 @@ public interface AntlrDemoListener extends ParseTreeListener {
 	 */
 	void exitParenExpr(AntlrDemoParser.ParenExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AntlrDemoParser#factor}.
+	 * Enter a parse tree produced by the {@code objFactory}
+	 * labeled alternative in {@link AntlrDemoParser#factor}.
 	 * @param ctx the parse tree
 	 */
-	void enterFactor(AntlrDemoParser.FactorContext ctx);
+	void enterObjFactory(AntlrDemoParser.ObjFactoryContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AntlrDemoParser#factor}.
+	 * Exit a parse tree produced by the {@code objFactory}
+	 * labeled alternative in {@link AntlrDemoParser#factor}.
 	 * @param ctx the parse tree
 	 */
-	void exitFactor(AntlrDemoParser.FactorContext ctx);
+	void exitObjFactory(AntlrDemoParser.ObjFactoryContext ctx);
 }

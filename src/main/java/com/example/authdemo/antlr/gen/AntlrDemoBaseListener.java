@@ -29,6 +29,18 @@ public class AntlrDemoBaseListener implements AntlrDemoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOperatorExpr(AntlrDemoParser.OperatorExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperatorExpr(AntlrDemoParser.OperatorExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPlusOrMinus(AntlrDemoParser.PlusOrMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -36,6 +48,18 @@ public class AntlrDemoBaseListener implements AntlrDemoListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPlusOrMinus(AntlrDemoParser.PlusOrMinusContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTernaryOperator(AntlrDemoParser.TernaryOperatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTernaryOperator(AntlrDemoParser.TernaryOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -65,13 +89,13 @@ public class AntlrDemoBaseListener implements AntlrDemoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFactor(AntlrDemoParser.FactorContext ctx) { }
+	@Override public void enterObjFactory(AntlrDemoParser.ObjFactoryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFactor(AntlrDemoParser.FactorContext ctx) { }
+	@Override public void exitObjFactory(AntlrDemoParser.ObjFactoryContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
