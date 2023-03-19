@@ -14,16 +14,20 @@ public class AntlrDemoTest {
 
     @Test
     public void test() {
-        Assertions.assertEquals(2, execute("1==1? 2:3"));
+        Assertions.assertEquals(1.0, execute("1 / 0"));
     }
 
     @Test
     public void batchTest() {
         Assertions.assertEquals(1, execute("1"));
         Assertions.assertEquals(3, execute("1+2"));
-        Assertions.assertEquals(7.0, execute("1+2 * 3"));
-        Assertions.assertEquals(9.0, execute("(1+2) * 3"));
+        Assertions.assertEquals(133, execute(" 111 + 22 "));
+        Assertions.assertEquals(7, execute("1+2 * 3"));
+        Assertions.assertEquals(5, execute("1*2 + 3"));
+        Assertions.assertEquals(9, execute("(1+2) * 3"));
         Assertions.assertEquals(2, execute("1==1? 2:3"));
+        Assertions.assertEquals(2, execute("1 +2==3? 2:3"));
+        Assertions.assertEquals(1.0, execute("1 * 1.0"));
     }
 
     private Object execute(String expression) {

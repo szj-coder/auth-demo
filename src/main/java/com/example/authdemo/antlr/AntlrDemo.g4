@@ -10,6 +10,7 @@ expr: LPAREN expr RPAREN        # parenExpr
 
 factor: INTEGER                 # objFactory
     | BOOLEAN                   # objFactory
+    | DOUBLE                    # objFactory
     ;
 
 PLUS: '+';
@@ -21,10 +22,9 @@ RPAREN: ')';
 OPENCURLY: '{';
 CLOSECURLY: '}';
 INTEGER: [-]?[0-9]+;
+DOUBLE: [-]?[0-9]+'.'[0-9]+;
 BOOLEAN: T R U E
-       | F A L S E
-       | [0]
-       | [1];
+       | F A L S E;
 
 IF: I F;
 ELSE: E L S E;

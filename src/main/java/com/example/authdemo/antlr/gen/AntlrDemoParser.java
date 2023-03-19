@@ -18,10 +18,10 @@ public class AntlrDemoParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, PLUS=4, MINUS=5, MULT=6, DIV=7, LPAREN=8, RPAREN=9, 
-		OPENCURLY=10, CLOSECURLY=11, INTEGER=12, BOOLEAN=13, IF=14, ELSE=15, A=16, 
-		B=17, C=18, D=19, E=20, F=21, G=22, H=23, I=24, J=25, K=26, L=27, M=28, 
-		N=29, O=30, P=31, Q=32, R=33, S=34, T=35, U=36, V=37, W=38, X=39, Y=40, 
-		Z=41, WS=42;
+		OPENCURLY=10, CLOSECURLY=11, INTEGER=12, DOUBLE=13, BOOLEAN=14, IF=15, 
+		ELSE=16, A=17, B=18, C=19, D=20, E=21, F=22, G=23, H=24, I=25, J=26, K=27, 
+		L=28, M=29, N=30, O=31, P=32, Q=33, R=34, S=35, T=36, U=37, V=38, W=39, 
+		X=40, Y=41, Z=42, WS=43;
 	public static final int
 		RULE_expr = 0, RULE_factor = 1;
 	private static String[] makeRuleNames() {
@@ -41,9 +41,9 @@ public class AntlrDemoParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, "PLUS", "MINUS", "MULT", "DIV", "LPAREN", "RPAREN", 
-			"OPENCURLY", "CLOSECURLY", "INTEGER", "BOOLEAN", "IF", "ELSE", "A", "B", 
-			"C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
-			"Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "WS"
+			"OPENCURLY", "CLOSECURLY", "INTEGER", "DOUBLE", "BOOLEAN", "IF", "ELSE", 
+			"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", 
+			"O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -282,6 +282,7 @@ public class AntlrDemoParser extends Parser {
 				}
 				break;
 			case INTEGER:
+			case DOUBLE:
 			case BOOLEAN:
 				{
 				_localctx = new FactorExprContext(_localctx);
@@ -410,6 +411,7 @@ public class AntlrDemoParser extends Parser {
 	public static class ObjFactoryContext extends FactorContext {
 		public TerminalNode INTEGER() { return getToken(AntlrDemoParser.INTEGER, 0); }
 		public TerminalNode BOOLEAN() { return getToken(AntlrDemoParser.BOOLEAN, 0); }
+		public TerminalNode DOUBLE() { return getToken(AntlrDemoParser.DOUBLE, 0); }
 		public ObjFactoryContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -430,7 +432,7 @@ public class AntlrDemoParser extends Parser {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_factor);
 		try {
-			setState(34);
+			setState(35);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INTEGER:
@@ -447,6 +449,14 @@ public class AntlrDemoParser extends Parser {
 				{
 				setState(33);
 				match(BOOLEAN);
+				}
+				break;
+			case DOUBLE:
+				_localctx = new ObjFactoryContext(_localctx);
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(34);
+				match(DOUBLE);
 				}
 				break;
 			default:
@@ -486,33 +496,34 @@ public class AntlrDemoParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001*%\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001\u0000"+
+		"\u0004\u0001+&\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001\u0000"+
 		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0003\u0000"+
 		"\u000b\b\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000"+
 		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000"+
 		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0005\u0000\u001c\b\u0000"+
-		"\n\u0000\f\u0000\u001f\t\u0000\u0001\u0001\u0001\u0001\u0003\u0001#\b"+
-		"\u0001\u0001\u0001\u0000\u0001\u0000\u0002\u0000\u0002\u0000\u0002\u0001"+
-		"\u0000\u0006\u0007\u0001\u0000\u0004\u0005(\u0000\n\u0001\u0000\u0000"+
-		"\u0000\u0002\"\u0001\u0000\u0000\u0000\u0004\u0005\u0006\u0000\uffff\uffff"+
-		"\u0000\u0005\u0006\u0005\b\u0000\u0000\u0006\u0007\u0003\u0000\u0000\u0000"+
-		"\u0007\b\u0005\t\u0000\u0000\b\u000b\u0001\u0000\u0000\u0000\t\u000b\u0003"+
-		"\u0002\u0001\u0000\n\u0004\u0001\u0000\u0000\u0000\n\t\u0001\u0000\u0000"+
-		"\u0000\u000b\u001d\u0001\u0000\u0000\u0000\f\r\n\u0005\u0000\u0000\r\u000e"+
-		"\u0007\u0000\u0000\u0000\u000e\u001c\u0003\u0000\u0000\u0006\u000f\u0010"+
-		"\n\u0004\u0000\u0000\u0010\u0011\u0007\u0001\u0000\u0000\u0011\u001c\u0003"+
-		"\u0000\u0000\u0005\u0012\u0013\n\u0003\u0000\u0000\u0013\u0014\u0005\u0001"+
-		"\u0000\u0000\u0014\u001c\u0003\u0000\u0000\u0004\u0015\u0016\n\u0002\u0000"+
-		"\u0000\u0016\u0017\u0005\u0002\u0000\u0000\u0017\u0018\u0003\u0000\u0000"+
-		"\u0000\u0018\u0019\u0005\u0003\u0000\u0000\u0019\u001a\u0003\u0000\u0000"+
-		"\u0003\u001a\u001c\u0001\u0000\u0000\u0000\u001b\f\u0001\u0000\u0000\u0000"+
-		"\u001b\u000f\u0001\u0000\u0000\u0000\u001b\u0012\u0001\u0000\u0000\u0000"+
-		"\u001b\u0015\u0001\u0000\u0000\u0000\u001c\u001f\u0001\u0000\u0000\u0000"+
-		"\u001d\u001b\u0001\u0000\u0000\u0000\u001d\u001e\u0001\u0000\u0000\u0000"+
-		"\u001e\u0001\u0001\u0000\u0000\u0000\u001f\u001d\u0001\u0000\u0000\u0000"+
-		" #\u0005\f\u0000\u0000!#\u0005\r\u0000\u0000\" \u0001\u0000\u0000\u0000"+
-		"\"!\u0001\u0000\u0000\u0000#\u0003\u0001\u0000\u0000\u0000\u0004\n\u001b"+
-		"\u001d\"";
+		"\n\u0000\f\u0000\u001f\t\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0003"+
+		"\u0001$\b\u0001\u0001\u0001\u0000\u0001\u0000\u0002\u0000\u0002\u0000"+
+		"\u0002\u0001\u0000\u0006\u0007\u0001\u0000\u0004\u0005*\u0000\n\u0001"+
+		"\u0000\u0000\u0000\u0002#\u0001\u0000\u0000\u0000\u0004\u0005\u0006\u0000"+
+		"\uffff\uffff\u0000\u0005\u0006\u0005\b\u0000\u0000\u0006\u0007\u0003\u0000"+
+		"\u0000\u0000\u0007\b\u0005\t\u0000\u0000\b\u000b\u0001\u0000\u0000\u0000"+
+		"\t\u000b\u0003\u0002\u0001\u0000\n\u0004\u0001\u0000\u0000\u0000\n\t\u0001"+
+		"\u0000\u0000\u0000\u000b\u001d\u0001\u0000\u0000\u0000\f\r\n\u0005\u0000"+
+		"\u0000\r\u000e\u0007\u0000\u0000\u0000\u000e\u001c\u0003\u0000\u0000\u0006"+
+		"\u000f\u0010\n\u0004\u0000\u0000\u0010\u0011\u0007\u0001\u0000\u0000\u0011"+
+		"\u001c\u0003\u0000\u0000\u0005\u0012\u0013\n\u0003\u0000\u0000\u0013\u0014"+
+		"\u0005\u0001\u0000\u0000\u0014\u001c\u0003\u0000\u0000\u0004\u0015\u0016"+
+		"\n\u0002\u0000\u0000\u0016\u0017\u0005\u0002\u0000\u0000\u0017\u0018\u0003"+
+		"\u0000\u0000\u0000\u0018\u0019\u0005\u0003\u0000\u0000\u0019\u001a\u0003"+
+		"\u0000\u0000\u0003\u001a\u001c\u0001\u0000\u0000\u0000\u001b\f\u0001\u0000"+
+		"\u0000\u0000\u001b\u000f\u0001\u0000\u0000\u0000\u001b\u0012\u0001\u0000"+
+		"\u0000\u0000\u001b\u0015\u0001\u0000\u0000\u0000\u001c\u001f\u0001\u0000"+
+		"\u0000\u0000\u001d\u001b\u0001\u0000\u0000\u0000\u001d\u001e\u0001\u0000"+
+		"\u0000\u0000\u001e\u0001\u0001\u0000\u0000\u0000\u001f\u001d\u0001\u0000"+
+		"\u0000\u0000 $\u0005\f\u0000\u0000!$\u0005\u000e\u0000\u0000\"$\u0005"+
+		"\r\u0000\u0000# \u0001\u0000\u0000\u0000#!\u0001\u0000\u0000\u0000#\""+
+		"\u0001\u0000\u0000\u0000$\u0003\u0001\u0000\u0000\u0000\u0004\n\u001b"+
+		"\u001d#";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -12,10 +12,19 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         final Object left = visit(ctx.expr(0));
         final Object right = visit(ctx.expr(1));
 
+        final List<? extends Class<? extends Number>> integers = Arrays.asList(Byte.class, Short.class, Integer.class, Long.class);
         if (ctx.DIV() != null) {
-            return ((Number) left).doubleValue() / ((Number) right).doubleValue();
+            if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
+                return ((Number) left).intValue() / ((Number) right).intValue();
+            } else {
+                return ((Number) left).doubleValue() / ((Number) right).doubleValue();
+            }
         } else if (ctx.MULT() != null) {
-            return ((Number) left).doubleValue() * ((Number) right).doubleValue();
+            if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
+                return ((Number) left).intValue() * ((Number) right).intValue();
+            } else {
+                return ((Number) left).doubleValue() * ((Number) right).doubleValue();
+            }
         }
         throw new RuntimeException("不识别的操作符");
     }
@@ -77,6 +86,8 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
             return Integer.valueOf(ctx.getText());
         } else if (ctx.BOOLEAN() != null) {
             return Boolean.parseBoolean(ctx.getText());
+        } else if (ctx.DOUBLE() != null) {
+            return Double.valueOf(ctx.getText());
         }
         throw new RuntimeException("不识别的因子类型");
     }
