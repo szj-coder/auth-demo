@@ -12,6 +12,6 @@ public class MyAntlrListener extends AntlrDemoBaseListener {
 
     @Override
     public void exitEveryRule(ParserRuleContext ctx) {
-        log.info("exit:" + ctx.toStringTree());
+        log.info(String.format("exit %20.20s >> %s", ctx.getClass().getSimpleName(), ctx.getText()));
     }
 }

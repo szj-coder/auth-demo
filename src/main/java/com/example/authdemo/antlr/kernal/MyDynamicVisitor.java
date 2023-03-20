@@ -2,11 +2,86 @@ package com.example.authdemo.antlr.kernal;
 
 import com.example.authdemo.antlr.gen.AntlrDemoBaseVisitor;
 import com.example.authdemo.antlr.gen.AntlrDemoParser;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
+
+    private AntlrContext varContext = new AntlrContext();
+    private Object current = null;
+
+    public MyDynamicVisitor() {
+    }
+
+    public MyDynamicVisitor(HashMap<String, Object> map) {
+        this.varContext = new AntlrContext(map);
+    }
+
+    @Override
+    public Object visitScript(AntlrDemoParser.ScriptContext ctx) {
+        return withStack(() -> {
+            for (AntlrDemoParser.StatementsContext statement : ctx.statements()) {
+                current = visit(statement);
+            }
+            return current;
+        });
+    }
+
+    @Override
+    public Object visitStatements(AntlrDemoParser.StatementsContext ctx) {
+        final List<Class<? extends ParserRuleContext>> sets = Arrays.asList(AntlrDemoParser.StatementContext.class, AntlrDemoParser.StatementsContext.class, AntlrDemoParser.StatementBlockContext.class);
+        for (ParseTree child : ctx.children) {
+            if (sets.contains(child.getClass())) {
+                current = visit(child);
+            }
+        }
+        return current;
+    }
+
+    @Override
+    public Object visitStatementBlock(AntlrDemoParser.StatementBlockContext ctx) {
+        return withStack(() -> visit(ctx.statements()));
+    }
+
+    @Override
+    public Object visitIf(AntlrDemoParser.IfContext ctx) {
+        if (Boolean.TRUE == visit(ctx.expr())) {
+            current = visit(ctx.statementBlock());
+        }
+        return current;
+    }
+
+    @Override
+    public Object visitIfElse(AntlrDemoParser.IfElseContext ctx) {
+        if (Boolean.TRUE == visit(ctx.expr())) {
+            current = visit(ctx.statementBlock(0));
+        } else {
+            current = visit(ctx.statementBlock(1));
+        }
+        return current;
+    }
+
+    @Override
+    public Object visitIfElseIf(AntlrDemoParser.IfElseIfContext ctx) {
+        if (Boolean.TRUE == visit(ctx.expr())) {
+            current = visit(ctx.statementBlock());
+        } else {
+            current = visit(ctx.ifExpression());
+        }
+        return current;
+    }
+
+    @Override
+    public Object visitStatement(AntlrDemoParser.StatementContext ctx) {
+        return visit(ctx.expr());
+    }
+
     @Override
     public Object visitMultOrDiv(AntlrDemoParser.MultOrDivContext ctx) {
         final Object left = visit(ctx.expr(0));
@@ -38,7 +113,7 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         if (ctx.PLUS() != null) {
             if (left instanceof String || right instanceof String) {
                 return String.valueOf(left) + right;
-            } else if (integers.contains(left.getClass())&& integers.contains(right.getClass())) {
+            } else if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
                 return ((Number) left).intValue() + ((Number) right).intValue();
             } else {
                 return ((Number) left).doubleValue() + ((Number) right).doubleValue();
@@ -90,5 +165,27 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
             return Double.valueOf(ctx.getText());
         }
         throw new RuntimeException("不识别的因子类型");
+    }
+
+    @Override
+    public Object visitTerminal(TerminalNode node) {
+        return current;
+    }
+
+    private <T> T withStack(Supplier<T> supplier) {
+        push();
+        try {
+            return supplier.get();
+        } finally {
+            pop();
+        }
+    }
+
+    private void push() {
+        varContext = varContext.push();
+    }
+
+    private void pop() {
+        varContext = varContext.pop();
     }
 }

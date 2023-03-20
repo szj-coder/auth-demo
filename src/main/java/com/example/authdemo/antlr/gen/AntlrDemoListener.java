@@ -8,6 +8,46 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface AntlrDemoListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link AntlrDemoParser#script}.
+	 * @param ctx the parse tree
+	 */
+	void enterScript(AntlrDemoParser.ScriptContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrDemoParser#script}.
+	 * @param ctx the parse tree
+	 */
+	void exitScript(AntlrDemoParser.ScriptContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrDemoParser#statements}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatements(AntlrDemoParser.StatementsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrDemoParser#statements}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatements(AntlrDemoParser.StatementsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrDemoParser#statementBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementBlock(AntlrDemoParser.StatementBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrDemoParser#statementBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementBlock(AntlrDemoParser.StatementBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrDemoParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement(AntlrDemoParser.StatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrDemoParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement(AntlrDemoParser.StatementContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code multOrDiv}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
 	 * @param ctx the parse tree
@@ -91,4 +131,40 @@ public interface AntlrDemoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitObjFactory(AntlrDemoParser.ObjFactoryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code if}
+	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf(AntlrDemoParser.IfContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code if}
+	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf(AntlrDemoParser.IfContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ifElse}
+	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfElse(AntlrDemoParser.IfElseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifElse}
+	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfElse(AntlrDemoParser.IfElseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ifElseIf}
+	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfElseIf(AntlrDemoParser.IfElseIfContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifElseIf}
+	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfElseIf(AntlrDemoParser.IfElseIfContext ctx);
 }

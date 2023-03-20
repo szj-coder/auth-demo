@@ -13,12 +13,13 @@ import org.junit.jupiter.api.Test;
 public class AntlrDemoTest {
 
     @Test
-    public void test() {
-        Assertions.assertEquals(1.0, execute("1 / 0"));
+    public void singleTest() {
+//        Assertions.assertEquals(2, execute("1}}"));
+        Assertions.assertEquals(2, execute("{1+2; 111 + 222; {1+1}}"));
     }
 
     @Test
-    public void batchTest() {
+    public void baseTest() {
         Assertions.assertEquals(1, execute("1"));
         Assertions.assertEquals(3, execute("1+2"));
         Assertions.assertEquals(133, execute(" 111 + 22 "));
@@ -28,6 +29,33 @@ public class AntlrDemoTest {
         Assertions.assertEquals(2, execute("1==1? 2:3"));
         Assertions.assertEquals(2, execute("1 +2==3? 2:3"));
         Assertions.assertEquals(1.0, execute("1 * 1.0"));
+        Assertions.assertEquals(7, execute("(1*2) + (2 + 3)"));
+    }
+
+    @Test
+    public void blockTest() {
+//        {
+//            1+2;
+//            {
+//                2+3;
+//            }
+//            3+4;
+//        }
+        Assertions.assertEquals(6, execute("{1+2;3+3;}"));
+        Assertions.assertEquals(6, execute("{1+2;3+3;}"));
+        Assertions.assertEquals(333, execute("{1+2;\n 111+ 222}"));
+        Assertions.assertEquals(333, execute("1+2; {1+2;\n 111+ 222}"));
+        Assertions.assertEquals(2, execute("{1+2;\n 111+ 222; {1+1}}"));
+        Assertions.assertEquals(2, execute("{1+2;\n 111+ 222 {1+1}}"));
+        Assertions.assertEquals(2, execute("{1+2;{2+3}3+4;}"));
+    }
+
+    @Test
+    public void ifTest() {
+//        Assertions.assertEquals(3, execute("if(true){1+2}"));
+//        Assertions.assertEquals(3, execute("if(false){2} else {3}"));
+        Assertions.assertEquals(2, execute("if(true){2} else {3}"));
+        Assertions.assertEquals(3, execute("if(false){2} else if(true){4}"));
     }
 
     private Object execute(String expression) {
@@ -37,6 +65,6 @@ public class AntlrDemoTest {
         AntlrDemoParser parser = new AntlrDemoParser(tokens);
         parser.addParseListener(new MyAntlrListener());
         final MyDynamicVisitor intVisitor = new MyDynamicVisitor();
-        return intVisitor.visit(parser.expr());
+        return intVisitor.visit(parser.script());
     }
 }

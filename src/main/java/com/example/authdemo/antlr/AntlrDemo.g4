@@ -1,17 +1,34 @@
 grammar AntlrDemo;
 
-expr: LPAREN expr RPAREN        # parenExpr
-    | expr (MULT | DIV) expr    # multOrDiv
-    | expr (PLUS | MINUS) expr  # plusOrMinus
-    | expr '==' expr            # operatorExpr
-    | expr '?' expr ':' expr    # ternaryOperator
-    | factor                    # factorExpr
+script: statements+ EOF;
+
+statements: statement (';' statement)+
+            | ifExpression
+            | statementBlock
+            ;
+
+statementBlock: OPENCURLY statements CLOSECURLY;
+
+statement: expr
+            ;
+
+expr: LPAREN expr RPAREN                    # parenExpr
+    | expr (MULT | DIV) expr                # multOrDiv
+    | expr (PLUS | MINUS) expr              # plusOrMinus
+    | expr '==' expr                        # operatorExpr
+    | expr '?' expr ':' expr                # ternaryOperator
+    | factor                                # factorExpr
     ;
 
 factor: INTEGER                 # objFactory
     | BOOLEAN                   # objFactory
     | DOUBLE                    # objFactory
     ;
+
+ifExpression: IF '(' expr ')' statementBlock            # if
+| IF '(' expr ')' statementBlock ELSE statementBlock      # ifElse
+| IF '(' expr ')' statementBlock ELSE ifExpression          # ifElseIf
+;
 
 PLUS: '+';
 MINUS: '-';
