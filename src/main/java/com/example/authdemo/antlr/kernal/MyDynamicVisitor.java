@@ -35,9 +35,8 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
 
     @Override
     public Object visitStatements(AntlrDemoParser.StatementsContext ctx) {
-        final List<Class<? extends ParserRuleContext>> sets = Arrays.asList(AntlrDemoParser.StatementContext.class, AntlrDemoParser.StatementsContext.class, AntlrDemoParser.StatementBlockContext.class);
         for (ParseTree child : ctx.children) {
-            if (sets.contains(child.getClass())) {
+            if (child instanceof ParserRuleContext) {
                 current = visit(child);
             }
         }
@@ -46,7 +45,12 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
 
     @Override
     public Object visitStatementBlock(AntlrDemoParser.StatementBlockContext ctx) {
-        return withStack(() -> visit(ctx.statements()));
+        return withStack(() -> {
+            for (AntlrDemoParser.StatementsContext statement : ctx.statements()) {
+                current = visit(statement);
+            }
+            return current;
+        });
     }
 
     @Override

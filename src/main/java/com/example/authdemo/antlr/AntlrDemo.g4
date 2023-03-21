@@ -2,12 +2,12 @@ grammar AntlrDemo;
 
 script: statements+ EOF;
 
-statements: statement (';' statement)+
+statements: statementBlock
             | ifExpression
-            | statementBlock
+            | statement (';' statement)* ';'?
             ;
 
-statementBlock: OPENCURLY statements CLOSECURLY;
+statementBlock: OPENCURLY statements* CLOSECURLY;
 
 statement: expr
             ;
