@@ -7,7 +7,7 @@ statements: statementBlock
             | statement (';' statement)* ';'?
             ;
 
-statementBlock: OPENCURLY statements* CLOSECURLY;
+statementBlock: OPENCURLY statements CLOSECURLY;
 
 statement: expr
             ;

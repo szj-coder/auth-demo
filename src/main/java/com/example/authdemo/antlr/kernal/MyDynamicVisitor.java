@@ -46,9 +46,7 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     @Override
     public Object visitStatementBlock(AntlrDemoParser.StatementBlockContext ctx) {
         return withStack(() -> {
-            for (AntlrDemoParser.StatementsContext statement : ctx.statements()) {
-                current = visit(statement);
-            }
+            current = visit(ctx.statements());
             return current;
         });
     }
