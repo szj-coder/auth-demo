@@ -47,6 +47,10 @@ public class AntlrDemoTest {
     @Test
     public void ifTest() {
         Assertions.assertEquals(3, execute("if(true){1+2}"));
+        Assertions.assertEquals(3, execute("if(true)1+2;"));
+        Assertions.assertEquals(3, execute("if(true)1+2"));
+        Assertions.assertEquals(5, execute("if(true)1+2; 2+3"));
+        Assertions.assertEquals(5, execute("if(true){1+2; 2+3}"));
         Assertions.assertEquals(3, execute("if(false){2} else {3}"));
         Assertions.assertEquals(2, execute("if(true){2} else {3}"));
         Assertions.assertEquals(4, execute("if(false){2} else if(true){4}"));
