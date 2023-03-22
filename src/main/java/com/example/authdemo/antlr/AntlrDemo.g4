@@ -20,16 +20,21 @@ expr: LPAREN expr RPAREN                    # parenExpr
     | factor                                # factorExpr
     ;
 
-factor: INTEGER                 # objFactory
-    | BOOLEAN                   # objFactory
-    | DOUBLE                    # objFactory
-    ;
+factor: INTEGER                     # objFactory
+        | DOUBLE                    # objFactory
+        | BOOLEAN                   # objFactory
+        ;
+//        | VARIABLE                  # objFactory
 
-ifExpression: IF '(' expr ')' statementBlock            # if
-| IF '(' expr ')' statementBlock ELSE statementBlock      # ifElse
-| IF '(' expr ')' statementBlock ELSE ifExpression          # ifElseIf
+ifExpression: IF '(' expr ')' statementBlock                            # if
+            | IF '(' expr ')' statementBlock ELSE statementBlock        # ifElse
+            | IF '(' expr ')' statementBlock ELSE ifExpression          # ifElseIf
+            ;
+
+varExpression: VARIABLE '=' expr ';'
 ;
 
+VARIABLE: [a-z_][a-zA-Z0-9_]*;
 PLUS: '+';
 MINUS: '-';
 MULT: '*';

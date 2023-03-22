@@ -42,8 +42,22 @@ public class AntlrContext {
         throw new RuntimeException("变量不存在:" + key);
     }
 
+    public boolean containsKey(String key) {
+        final boolean result = context.containsKey(key);
+        if (result || parent == null) {
+            return true;
+        }
+        return parent.containsKey(key);
+    }
+
     public void setValue(String key, Object value) {
-        context.put(key, value);
+        if (context.containsKey(key)) {
+            context.put(key, value);
+        } else if (containsKey(key) && parent != null) {
+            parent.setValue(key, value);
+        } else {
+            context.put(key, value);
+        }
     }
 
     void setParent(AntlrContext parent) {

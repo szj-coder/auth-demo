@@ -104,4 +104,10 @@ public interface AntlrDemoVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfElseIf(AntlrDemoParser.IfElseIfContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AntlrDemoParser#varExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarExpression(AntlrDemoParser.VarExpressionContext ctx);
 }

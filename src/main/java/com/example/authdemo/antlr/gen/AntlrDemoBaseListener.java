@@ -180,6 +180,18 @@ public class AntlrDemoBaseListener implements AntlrDemoListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIfElseIf(AntlrDemoParser.IfElseIfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarExpression(AntlrDemoParser.VarExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarExpression(AntlrDemoParser.VarExpressionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -6,9 +6,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
@@ -19,8 +17,8 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     public MyDynamicVisitor() {
     }
 
-    public MyDynamicVisitor(HashMap<String, Object> map) {
-        this.varContext = new AntlrContext(map);
+    public MyDynamicVisitor(Map<String, Object> map) {
+        this.varContext = new AntlrContext(new HashMap<>(Optional.ofNullable(map).orElse(Collections.emptyMap())));
     }
 
     @Override
@@ -166,7 +164,23 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         } else if (ctx.DOUBLE() != null) {
             return Double.valueOf(ctx.getText());
         }
+//        else if (ctx.VARIABLE() != null) {
+//            final TerminalNode variable = ctx.VARIABLE();
+//            if (!varContext.containsKey(ctx.getText())) {
+//                throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
+//            }
+//            return varContext.getValue(variable.getText());
+//        }
         throw new RuntimeException("不识别的因子类型");
+    }
+
+    @Override
+    public Object visitVarExpression(AntlrDemoParser.VarExpressionContext ctx) {
+        final TerminalNode variable = ctx.VARIABLE();
+        final Object value = visit(ctx.expr());
+        varContext.setValue(variable.getText(), value);
+        current = value;
+        return value;
     }
 
     @Override

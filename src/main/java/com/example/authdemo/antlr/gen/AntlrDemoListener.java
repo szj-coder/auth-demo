@@ -167,4 +167,14 @@ public interface AntlrDemoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfElseIf(AntlrDemoParser.IfElseIfContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AntlrDemoParser#varExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarExpression(AntlrDemoParser.VarExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AntlrDemoParser#varExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarExpression(AntlrDemoParser.VarExpressionContext ctx);
 }
