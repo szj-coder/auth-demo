@@ -35,7 +35,7 @@ flowchart LR
 - [224. 基本计算器](https://leetcode-cn.com/problems/basic-calculator/)
 - [239. 滑动窗口最大值]( https://leetcode-cn.com/problems/sliding-window-maximum/)
 
-# git奇淫巧技
+# GIT奇技淫巧
 
 ## 修改历史所有信息
 
@@ -59,3 +59,9 @@ then
 fi
 ' --tag-name-filter cat -- --branches --tags
 ```
+
+```git
+git push --force --tags origin 'refs/heads/*'
+```
+
+> 如果出现无法变更的错误，需要删掉备份 `rm -rf .git/refs/original`
