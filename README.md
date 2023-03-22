@@ -35,3 +35,27 @@ flowchart LR
 - [224. 基本计算器](https://leetcode-cn.com/problems/basic-calculator/)
 - [239. 滑动窗口最大值]( https://leetcode-cn.com/problems/sliding-window-maximum/)
 
+# git奇淫巧技
+
+## 修改历史所有信息
+
+```git
+git filter-branch --env-filter '
+
+OLD_EMAIL="旧的邮箱地址"
+CORRECT_NAME="新的名称"
+CORRECT_EMAIL="新的邮箱地址"
+
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+' --tag-name-filter cat -- --branches --tags
+```
