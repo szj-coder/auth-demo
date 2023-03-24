@@ -4,6 +4,7 @@ script: statements+ EOF;
 
 statements: statementBlock
             | ifExpression
+            | varExpression
             | statement (';' statement)* ';'?
             ;
 
@@ -23,8 +24,8 @@ expr: LPAREN expr RPAREN                    # parenExpr
 factor: INTEGER                     # objFactory
         | DOUBLE                    # objFactory
         | BOOLEAN                   # objFactory
+        | VARIABLE                  # objFactory
         ;
-//        | VARIABLE                  # objFactory
 
 ifExpression: IF '(' expr ')' statementBlock                            # if
             | IF '(' expr ')' statementBlock ELSE statementBlock        # ifElse
@@ -34,7 +35,6 @@ ifExpression: IF '(' expr ')' statementBlock                            # if
 varExpression: VARIABLE '=' expr ';'
 ;
 
-VARIABLE: [a-z_][a-zA-Z0-9_]*;
 PLUS: '+';
 MINUS: '-';
 MULT: '*';
@@ -50,6 +50,8 @@ BOOLEAN: T R U E
 
 IF: I F;
 ELSE: E L S E;
+
+VARIABLE: [a-z_][a-zA-Z0-9_]*;
 
 // 表示用A代表a和A，这样就可以不区分大小写了，以下同理
 A: [aA];

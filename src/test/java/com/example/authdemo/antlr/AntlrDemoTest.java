@@ -20,7 +20,7 @@ public class AntlrDemoTest {
 
     @Test
     public void scriptTest() {
-        assertEquals(true, execute("true"));
+        assertEquals(444, execute("a = 123;b=321;a+b"));
     }
 
     @Test

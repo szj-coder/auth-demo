@@ -163,14 +163,13 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
             return Boolean.parseBoolean(ctx.getText());
         } else if (ctx.DOUBLE() != null) {
             return Double.valueOf(ctx.getText());
+        } else if (ctx.VARIABLE() != null) {
+            final TerminalNode variable = ctx.VARIABLE();
+            if (!varContext.containsKey(ctx.getText())) {
+                throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
+            }
+            return varContext.getValue(variable.getText());
         }
-//        else if (ctx.VARIABLE() != null) {
-//            final TerminalNode variable = ctx.VARIABLE();
-//            if (!varContext.containsKey(ctx.getText())) {
-//                throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
-//            }
-//            return varContext.getValue(variable.getText());
-//        }
         throw new RuntimeException("不识别的因子类型");
     }
 
