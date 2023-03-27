@@ -60,6 +60,18 @@ public interface AntlrDemoListener extends ParseTreeListener {
 	 */
 	void exitMultOrDiv(AntlrDemoParser.MultOrDivContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code logicalOperator}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code logicalOperator}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code operatorExpr}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
 	 * @param ctx the parse tree

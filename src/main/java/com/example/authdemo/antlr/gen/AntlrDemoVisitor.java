@@ -42,6 +42,13 @@ public interface AntlrDemoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMultOrDiv(AntlrDemoParser.MultOrDivContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code logicalOperator}
+	 * labeled alternative in {@link AntlrDemoParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code operatorExpr}
 	 * labeled alternative in {@link AntlrDemoParser#expr}.
 	 * @param ctx the parse tree

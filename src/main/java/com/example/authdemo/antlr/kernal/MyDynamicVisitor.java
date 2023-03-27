@@ -131,8 +131,30 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     @Override
     public Object visitOperatorExpr(AntlrDemoParser.OperatorExprContext ctx) {
         final Object left = visit(ctx.expr(0));
-        final Object right = visit(ctx.expr(1));
-        return left == right;
+        Supplier<?> right = () -> visit(ctx.expr(1));
+        final String opText = ctx.op.getText();
+        switch (opText) {
+            case "==":
+                return left == right.get();
+            case "!=":
+                return left != right.get();
+            case "&&":
+                return getBooleanOperationAndCheck(left, opText) && getBooleanOperationAndCheck(right.get(), opText);
+            case "||":
+                return getBooleanOperationAndCheck(left, opText) || getBooleanOperationAndCheck(right.get(), opText);
+            case "<":
+//                return getBooleanOperationAndCheck(left, opText) < getBooleanOperationAndCheck(right.get(), opText);
+            case ">":
+                break;
+            case "<=":
+                break;
+            case ">=":
+                break;
+            default:
+                throw new RuntimeException("操作符不支持");
+
+        }
+        return null;
     }
 
     @Override
@@ -185,6 +207,41 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     @Override
     public Object visitTerminal(TerminalNode node) {
         return current;
+    }
+
+    private Comparable<?> getComparableAndCheck(Object obj, String operationName) {
+//        if (obj == null) {
+//            throw exSup.get();
+//        }
+//        if (obj instanceof Comparable) {
+//            return (Comparable<?>) obj;
+//        }
+//        throw exSup.get();
+        return null;
+    }
+
+    private Comparable<?> getComparableAndCheck(Object obj, Supplier<RuntimeException> exSup) {
+        if (obj == null) {
+            throw exSup.get();
+        }
+        if (obj instanceof Comparable) {
+            return (Comparable<?>) obj;
+        }
+        throw exSup.get();
+    }
+
+    private boolean getBooleanOperationAndCheck(Object obj, String operationName) {
+        return getBooleanAndCheck(obj, () -> new RuntimeException(String.format("%s类型不支持%s运算", obj.getClass().getSimpleName(), operationName)));
+    }
+
+    private boolean getBooleanAndCheck(Object obj, Supplier<RuntimeException> exSup) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj instanceof Boolean) {
+            return (Boolean) obj;
+        }
+        throw exSup.get();
     }
 
     private <T> T withStack(Supplier<T> supplier) {

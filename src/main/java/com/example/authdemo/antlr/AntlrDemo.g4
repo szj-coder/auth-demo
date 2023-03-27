@@ -13,12 +13,14 @@ statementBlock: OPENCURLY statements CLOSECURLY;
 statement: expr
             ;
 
-expr: LPAREN expr RPAREN                    # parenExpr
-    | expr (MULT | DIV) expr                # multOrDiv
-    | expr (PLUS | MINUS) expr              # plusOrMinus
-    | expr '==' expr                        # operatorExpr
-    | expr '?' expr ':' expr                # ternaryOperator
-    | factor                                # factorExpr
+expr: LPAREN expr RPAREN                                                        # parenExpr
+    | expr (MULT | DIV) expr                                                    # multOrDiv
+    | expr (PLUS | MINUS) expr                                                  # plusOrMinus
+    | expr '?' expr ':' expr                                                    # ternaryOperator
+    | expr op = ('==' | '!=' | '&&' | '||') expr                                # operatorExpr
+    | expr op = ('==' | '!=' | '&&' | '||') expr                                # operatorExpr
+    | (NOT) expr                                                                # logicalOperator
+    | factor                                                                    # factorExpr
     ;
 
 factor: INTEGER                     # objFactory
@@ -39,10 +41,20 @@ PLUS: '+';
 MINUS: '-';
 MULT: '*';
 DIV: '/';
+
+AND: '&&';
+OR: '||';
+NOT: '!';
+GREATEREQUAL: '>=';
+LESSEQUAL: '<=';
+LESS: '<';
+GREATER: '>';
+
 LPAREN: '(';
 RPAREN: ')';
 OPENCURLY: '{';
 CLOSECURLY: '}';
+
 INTEGER: [-]?[0-9]+;
 DOUBLE: [-]?[0-9]+'.'[0-9]+;
 BOOLEAN: T R U E

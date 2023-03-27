@@ -77,6 +77,18 @@ public class AntlrDemoBaseListener implements AntlrDemoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterOperatorExpr(AntlrDemoParser.OperatorExprContext ctx) { }
 	/**
 	 * {@inheritDoc}

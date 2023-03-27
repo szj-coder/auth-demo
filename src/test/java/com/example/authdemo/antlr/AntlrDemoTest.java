@@ -16,6 +16,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * antlr测试
+ */
 public class AntlrDemoTest {
 
     @Test
