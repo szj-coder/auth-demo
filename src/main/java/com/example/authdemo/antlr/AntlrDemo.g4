@@ -17,7 +17,7 @@ expr: LPAREN expr RPAREN                                                        
     | expr (MULT | DIV) expr                                                    # multOrDiv
     | expr (PLUS | MINUS) expr                                                  # plusOrMinus
     | expr '?' expr ':' expr                                                    # ternaryOperator
-    | expr op = ('==' | '!=' | '&&' | '||') expr                                # operatorExpr
+    | expr op = ('>' | '>=' | '<' | '<=') expr                                  # operatorExpr
     | expr op = ('==' | '!=' | '&&' | '||') expr                                # operatorExpr
     | (NOT) expr                                                                # logicalOperator
     | factor                                                                    # factorExpr

@@ -174,7 +174,7 @@ public class BaseTypePromotion {
         isNumOrError(b);
         final int orderIndex = maxPromotionOrder(a, b);
 
-        Object result = null;
+        Object result;
         if (orderIndex == promotionOrder(Short.class)) {
             result = ((Number) a).floatValue() % (((Number) b).floatValue());
         } else if (orderIndex == promotionOrder(Integer.class)) {
@@ -267,6 +267,10 @@ public class BaseTypePromotion {
         if (!isNum(clazz)) {
             throw new RuntimeException(String.format("%s 不是数值类型", msg));
         }
+    }
+
+    public static boolean parseBoolean(Object obj) {
+        return Boolean.TRUE == obj;
     }
 
     public static void anyNotNullOrError(Object... objects) {

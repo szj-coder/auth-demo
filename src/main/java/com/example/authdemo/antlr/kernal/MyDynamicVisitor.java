@@ -2,6 +2,7 @@ package com.example.authdemo.antlr.kernal;
 
 import com.example.authdemo.antlr.gen.AntlrDemoBaseVisitor;
 import com.example.authdemo.antlr.gen.AntlrDemoParser;
+import com.example.authdemo.antlr.util.BaseTypePromotion;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -87,19 +88,10 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         final Object left = visit(ctx.expr(0));
         final Object right = visit(ctx.expr(1));
 
-        final List<? extends Class<? extends Number>> integers = Arrays.asList(Byte.class, Short.class, Integer.class, Long.class);
         if (ctx.DIV() != null) {
-            if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
-                return ((Number) left).intValue() / ((Number) right).intValue();
-            } else {
-                return ((Number) left).doubleValue() / ((Number) right).doubleValue();
-            }
+            return BaseTypePromotion.div(left, right);
         } else if (ctx.MULT() != null) {
-            if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
-                return ((Number) left).intValue() * ((Number) right).intValue();
-            } else {
-                return ((Number) left).doubleValue() * ((Number) right).doubleValue();
-            }
+            return BaseTypePromotion.mult(left, right);
         }
         throw new RuntimeException("不识别的操作符");
     }
@@ -109,21 +101,10 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         final Object left = visit(ctx.expr(0));
         final Object right = visit(ctx.expr(1));
 
-        final List<? extends Class<? extends Number>> integers = Arrays.asList(Byte.class, Short.class, Integer.class, Long.class);
         if (ctx.PLUS() != null) {
-            if (left instanceof String || right instanceof String) {
-                return String.valueOf(left) + right;
-            } else if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
-                return ((Number) left).intValue() + ((Number) right).intValue();
-            } else {
-                return ((Number) left).doubleValue() + ((Number) right).doubleValue();
-            }
+            return BaseTypePromotion.plus(left, right);
         } else if (ctx.MINUS() != null) {
-            if (integers.contains(left.getClass()) && integers.contains(right.getClass())) {
-                return ((Number) left).intValue() - ((Number) right).intValue();
-            } else {
-                return ((Number) left).doubleValue() - ((Number) right).doubleValue();
-            }
+            return BaseTypePromotion.minus(left, right);
         }
         throw new RuntimeException("不识别的操作符");
     }
@@ -135,26 +116,25 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         final String opText = ctx.op.getText();
         switch (opText) {
             case "==":
-                return left == right.get();
+                return BaseTypePromotion.compareTo(left, right.get()) == 0;
             case "!=":
-                return left != right.get();
+                return BaseTypePromotion.compareTo(left, right.get()) != 0;
             case "&&":
-                return getBooleanOperationAndCheck(left, opText) && getBooleanOperationAndCheck(right.get(), opText);
+                return BaseTypePromotion.parseBoolean(left) && BaseTypePromotion.parseBoolean(right.get());
             case "||":
-                return getBooleanOperationAndCheck(left, opText) || getBooleanOperationAndCheck(right.get(), opText);
+                return BaseTypePromotion.parseBoolean(left) || BaseTypePromotion.parseBoolean(right.get());
             case "<":
-//                return getBooleanOperationAndCheck(left, opText) < getBooleanOperationAndCheck(right.get(), opText);
+                return BaseTypePromotion.compareTo(left, right.get()) < 0;
             case ">":
-                break;
+                return BaseTypePromotion.compareTo(left, right.get()) > 0;
             case "<=":
-                break;
+                return BaseTypePromotion.compareTo(left, right.get()) <= 0;
             case ">=":
-                break;
+                return BaseTypePromotion.compareTo(left, right.get()) >= 0;
             default:
                 throw new RuntimeException("操作符不支持");
 
         }
-        return null;
     }
 
     @Override
@@ -207,41 +187,6 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     @Override
     public Object visitTerminal(TerminalNode node) {
         return current;
-    }
-
-    private Comparable<?> getComparableAndCheck(Object obj, String operationName) {
-//        if (obj == null) {
-//            throw exSup.get();
-//        }
-//        if (obj instanceof Comparable) {
-//            return (Comparable<?>) obj;
-//        }
-//        throw exSup.get();
-        return null;
-    }
-
-    private Comparable<?> getComparableAndCheck(Object obj, Supplier<RuntimeException> exSup) {
-        if (obj == null) {
-            throw exSup.get();
-        }
-        if (obj instanceof Comparable) {
-            return (Comparable<?>) obj;
-        }
-        throw exSup.get();
-    }
-
-    private boolean getBooleanOperationAndCheck(Object obj, String operationName) {
-        return getBooleanAndCheck(obj, () -> new RuntimeException(String.format("%s类型不支持%s运算", obj.getClass().getSimpleName(), operationName)));
-    }
-
-    private boolean getBooleanAndCheck(Object obj, Supplier<RuntimeException> exSup) {
-        if (obj == null) {
-            return false;
-        }
-        if (obj instanceof Boolean) {
-            return (Boolean) obj;
-        }
-        throw exSup.get();
     }
 
     private <T> T withStack(Supplier<T> supplier) {

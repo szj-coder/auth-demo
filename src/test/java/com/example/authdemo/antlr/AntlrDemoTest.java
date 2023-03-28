@@ -77,6 +77,15 @@ public class AntlrDemoTest {
         Assertions.assertThrows(RuntimeException.class, () -> execute("a=123;a+b"));
     }
 
+    @Test
+    public void operationTest() {
+        assertEquals(false, execute("1 > 2"));
+        assertEquals(true, execute("2>1"));
+        assertEquals(true, execute("1>=1"));
+        assertEquals(123, execute("if(a>10){123}else{321}", Map.of("a", 11)));
+        assertEquals(3211, execute("if(a>10){123}else{3211}", Map.of("a", 10)));
+    }
+
     private Object execute(String expression) {
         CharStream input = CharStreams.fromString(expression);
         AntlrDemoLexer lexer = new AntlrDemoLexer(input);
