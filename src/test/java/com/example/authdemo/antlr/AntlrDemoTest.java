@@ -23,7 +23,7 @@ public class AntlrDemoTest {
 
     @Test
     public void scriptTest() {
-        assertEquals(444, execute("a = 123;b=321;a+b"));
+        assertEquals(2, execute("1==1? 2:3"));
     }
 
     @Test
@@ -82,6 +82,8 @@ public class AntlrDemoTest {
         assertEquals(false, execute("1 > 2"));
         assertEquals(true, execute("2>1"));
         assertEquals(true, execute("1>=1"));
+        assertEquals(true, execute("1>=1"));
+        assertEquals(false, execute("!true"));
         assertEquals(123, execute("if(a>10){123}else{321}", Map.of("a", 11)));
         assertEquals(3211, execute("if(a>10){123}else{3211}", Map.of("a", 10)));
     }

@@ -133,8 +133,16 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
                 return BaseTypePromotion.compareTo(left, right.get()) >= 0;
             default:
                 throw new RuntimeException("操作符不支持");
-
         }
+    }
+
+    @Override
+    public Object visitLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx) {
+        final Object visit = visit(ctx.expr());
+        if (visit == null || visit.getClass() != Boolean.class) {
+            throw new RuntimeException(String.format("%s 类型不支持取反操作", visit));
+        }
+        return Boolean.FALSE == visit;
     }
 
     @Override

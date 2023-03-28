@@ -1,17 +1,13 @@
 // Generated from java-escape by ANTLR 4.11.1
 package com.example.authdemo.antlr.gen;
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNDeserializer;
-import org.antlr.v4.runtime.atn.ParserATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class AntlrDemoParser extends Parser {
@@ -40,7 +36,7 @@ public class AntlrDemoParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "';'", "'?'", "':'", "'=='", "'!='", "'='", "'+'", "'-'", "'*'", 
+			null, "';'", "'=='", "'!='", "'?'", "':'", "'='", "'+'", "'-'", "'*'", 
 			"'/'", "'&&'", "'||'", "'!'", "'>='", "'<='", "'<'", "'>'", "'('", "')'", 
 			"'{'", "'}'"
 		};
@@ -675,27 +671,11 @@ public class AntlrDemoParser extends Parser {
 						break;
 					case 3:
 						{
-						_localctx = new TernaryOperatorContext(new ExprContext(_parentctx, _parentState));
+						_localctx = new OperatorExprContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(61);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
 						setState(62);
-						match(T__1);
-						setState(63);
-						expr(0);
-						setState(64);
-						match(T__2);
-						setState(65);
-						expr(6);
-						}
-						break;
-					case 4:
-						{
-						_localctx = new OperatorExprContext(new ExprContext(_parentctx, _parentState));
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(67);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(68);
 						((OperatorExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 245760L) != 0) ) {
@@ -706,20 +686,20 @@ public class AntlrDemoParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(69);
-						expr(5);
+						setState(63);
+						expr(6);
 						}
 						break;
-					case 5:
+					case 4:
 						{
 						_localctx = new OperatorExprContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(70);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(71);
+						setState(64);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(65);
 						((OperatorExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 6192L) != 0) ) {
+						if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 6156L) != 0) ) {
 							((OperatorExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 						}
 						else {
@@ -727,7 +707,23 @@ public class AntlrDemoParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(72);
+						setState(66);
+						expr(5);
+						}
+						break;
+					case 5:
+						{
+						_localctx = new TernaryOperatorContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(67);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(68);
+						match(T__3);
+						setState(69);
+						expr(0);
+						setState(70);
+						match(T__4);
+						setState(71);
 						expr(4);
 						}
 						break;
@@ -1110,7 +1106,7 @@ public class AntlrDemoParser extends Parser {
 		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0003\u0006k\b\u0006\u0001"+
 		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0000"+
 		"\u0001\b\b\u0000\u0002\u0004\u0006\b\n\f\u000e\u0000\u0004\u0001\u0000"+
-		"\t\n\u0001\u0000\u0007\b\u0001\u0000\u000e\u0011\u0002\u0000\u0004\u0005"+
+		"\t\n\u0001\u0000\u0007\b\u0001\u0000\u000e\u0011\u0002\u0000\u0002\u0003"+
 		"\u000b\f{\u0000\u0011\u0001\u0000\u0000\u0000\u0002%\u0001\u0000\u0000"+
 		"\u0000\u0004\'\u0001\u0000\u0000\u0000\u0006+\u0001\u0000\u0000\u0000"+
 		"\b5\u0001\u0000\u0000\u0000\nR\u0001\u0000\u0000\u0000\fj\u0001\u0000"+
@@ -1136,12 +1132,12 @@ public class AntlrDemoParser extends Parser {
 		"52\u0001\u0000\u0000\u000054\u0001\u0000\u0000\u00006K\u0001\u0000\u0000"+
 		"\u000078\n\u0007\u0000\u000089\u0007\u0000\u0000\u00009J\u0003\b\u0004"+
 		"\b:;\n\u0006\u0000\u0000;<\u0007\u0001\u0000\u0000<J\u0003\b\u0004\u0007"+
-		"=>\n\u0005\u0000\u0000>?\u0005\u0002\u0000\u0000?@\u0003\b\u0004\u0000"+
-		"@A\u0005\u0003\u0000\u0000AB\u0003\b\u0004\u0006BJ\u0001\u0000\u0000\u0000"+
-		"CD\n\u0004\u0000\u0000DE\u0007\u0002\u0000\u0000EJ\u0003\b\u0004\u0005"+
-		"FG\n\u0003\u0000\u0000GH\u0007\u0003\u0000\u0000HJ\u0003\b\u0004\u0004"+
+		"=>\n\u0005\u0000\u0000>?\u0007\u0002\u0000\u0000?J\u0003\b\u0004\u0006"+
+		"@A\n\u0004\u0000\u0000AB\u0007\u0003\u0000\u0000BJ\u0003\b\u0004\u0005"+
+		"CD\n\u0003\u0000\u0000DE\u0005\u0004\u0000\u0000EF\u0003\b\u0004\u0000"+
+		"FG\u0005\u0005\u0000\u0000GH\u0003\b\u0004\u0004HJ\u0001\u0000\u0000\u0000"+
 		"I7\u0001\u0000\u0000\u0000I:\u0001\u0000\u0000\u0000I=\u0001\u0000\u0000"+
-		"\u0000IC\u0001\u0000\u0000\u0000IF\u0001\u0000\u0000\u0000JM\u0001\u0000"+
+		"\u0000I@\u0001\u0000\u0000\u0000IC\u0001\u0000\u0000\u0000JM\u0001\u0000"+
 		"\u0000\u0000KI\u0001\u0000\u0000\u0000KL\u0001\u0000\u0000\u0000L\t\u0001"+
 		"\u0000\u0000\u0000MK\u0001\u0000\u0000\u0000NS\u0005\u0016\u0000\u0000"+
 		"OS\u0005\u0017\u0000\u0000PS\u0005\u0018\u0000\u0000QS\u0005\u001b\u0000"+

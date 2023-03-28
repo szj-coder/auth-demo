@@ -16,9 +16,9 @@ statement: expr
 expr: LPAREN expr RPAREN                                                        # parenExpr
     | expr (MULT | DIV) expr                                                    # multOrDiv
     | expr (PLUS | MINUS) expr                                                  # plusOrMinus
-    | expr '?' expr ':' expr                                                    # ternaryOperator
     | expr op = ('>' | '>=' | '<' | '<=') expr                                  # operatorExpr
     | expr op = ('==' | '!=' | '&&' | '||') expr                                # operatorExpr
+    | expr '?' expr ':' expr                                                    # ternaryOperator
     | (NOT) expr                                                                # logicalOperator
     | factor                                                                    # factorExpr
     ;
@@ -92,6 +92,5 @@ W: [wW];
 X: [xX];
 Y: [yY];
 Z: [zZ];
-
 
 WS: [ \t\n\r]+ -> skip;
