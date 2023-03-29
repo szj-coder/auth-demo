@@ -1,4 +1,4 @@
-## antlr
+## Antlr4
 
 - 一些定义
 AST：抽象语法树（Abstract Syntax Tree）
@@ -11,6 +11,7 @@ AST：抽象语法树（Abstract Syntax Tree）
 
 - 参考
 >  [antlr4官方文档](https://github.com/antlr/antlr4/blob/4.6/doc/index.md)
+
 >  [编译原理之美](https://time.geekbang.org/column/article/118132)
 
 ### 词法分析（Lexical Analysis）
@@ -30,7 +31,7 @@ int main(int argc, char* argv[]){
 ```
 if、else、int 这样的关键字，main、printf、age 这样的标识符，+、-、= 这样的操作符号，还有花括号、圆括号、分号这样的符号，以及数字字面量、字符串字面量等。这些都是**词法记号**，也可以称作**Token**。
 
-词法分析可以依靠**有限自动机**来进行‘分词’
+词法分析可以依靠**有限自动机**来进行*分词*
 
 需要注意点
 - 词法分析优先级
@@ -49,7 +50,7 @@ if、else、int 这样的关键字，main、printf、age 这样的标识符，+�
 
 常用指令
 ```shell
-# 生成解析树
+# 生成解析树 输入指令后回车输入表达式，win按ctrl+z结束，unix按ctrl+d结束
 antlr4-parse.exe .\AntlrDemo.g4 factor -tree
 # 生成解析树图 更加直观
 antlr4-parse.exe .\AntlrDemo.g4 script -gui
