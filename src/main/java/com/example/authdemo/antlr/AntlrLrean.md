@@ -14,6 +14,8 @@ AST：抽象语法树（Abstract Syntax Tree）
 
 >  [编译原理之美](https://time.geekbang.org/column/article/118132)
 
+> [ANTLR 4简明教程](https://www.cntofu.com/book/115/basic-concept.md)
+
 ### 词法分析（Lexical Analysis）
 
 ```c
@@ -41,10 +43,16 @@ if、else、int 这样的关键字，main、printf、age 这样的标识符，+�
 
 词法分析是识别一个个的单词，而语法分析就是在词法分析的基础上识别出程序的语法结构。这个结构是一个树状结构，是计算机容易理解和执行的。
 
-#### 表达式
+### 匹配顺序
+
+#### 二义性
+
+antlr4根据定义的先后顺序来解决二义性，先定义的优先级高
 
 
-### 执行顺序
+### 左递归规则
+
+
 
 ### antlr4-parse工具使用指南
 
