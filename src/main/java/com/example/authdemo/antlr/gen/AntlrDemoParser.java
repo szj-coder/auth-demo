@@ -1,4 +1,4 @@
-// Generated from java-escape by ANTLR 4.11.1
+// Generated from C:/Users/shen/Desktop/worker/auth-demo/src/main/java/com/example/authdemo/antlr\AntlrDemo.g4 by ANTLR 4.12.0
 package com.example.authdemo.antlr.gen;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -11,18 +11,18 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class AntlrDemoParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.12.0", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, PLUS=7, MINUS=8, MULT=9, 
-		DIV=10, AND=11, OR=12, NOT=13, GREATEREQUAL=14, LESSEQUAL=15, LESS=16, 
-		GREATER=17, LPAREN=18, RPAREN=19, OPENCURLY=20, CLOSECURLY=21, INTEGER=22, 
-		DOUBLE=23, BOOLEAN=24, IF=25, ELSE=26, VARIABLE=27, A=28, B=29, C=30, 
-		D=31, E=32, F=33, G=34, H=35, I=36, J=37, K=38, L=39, M=40, N=41, O=42, 
-		P=43, Q=44, R=45, S=46, T=47, U=48, V=49, W=50, X=51, Y=52, Z=53, WS=54;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, INTEGER=7, DOUBLE=8, BOOLEAN=9, 
+		PLUS=10, MINUS=11, MULT=12, DIV=13, AND=14, OR=15, NOT=16, GREATEREQUAL=17, 
+		LESSEQUAL=18, LESS=19, GREATER=20, LPAREN=21, RPAREN=22, OPENCURLY=23, 
+		CLOSECURLY=24, IF=25, ELSE=26, VARIABLE=27, A=28, B=29, C=30, D=31, E=32, 
+		F=33, G=34, H=35, I=36, J=37, K=38, L=39, M=40, N=41, O=42, P=43, Q=44, 
+		R=45, S=46, T=47, U=48, V=49, W=50, X=51, Y=52, Z=53, WS=54;
 	public static final int
 		RULE_script = 0, RULE_statements = 1, RULE_statementBlock = 2, RULE_statement = 3, 
 		RULE_expr = 4, RULE_factor = 5, RULE_ifExpression = 6, RULE_varExpression = 7;
@@ -36,20 +36,20 @@ public class AntlrDemoParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "';'", "'=='", "'!='", "'?'", "':'", "'='", "'+'", "'-'", "'*'", 
-			"'/'", "'&&'", "'||'", "'!'", "'>='", "'<='", "'<'", "'>'", "'('", "')'", 
-			"'{'", "'}'"
+			null, "';'", "'=='", "'!='", "'?'", "':'", "'='", null, null, null, "'+'", 
+			"'-'", "'*'", "'/'", "'&&'", "'||'", "'!'", "'>='", "'<='", "'<'", "'>'", 
+			"'('", "')'", "'{'", "'}'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, "PLUS", "MINUS", "MULT", "DIV", 
-			"AND", "OR", "NOT", "GREATEREQUAL", "LESSEQUAL", "LESS", "GREATER", "LPAREN", 
-			"RPAREN", "OPENCURLY", "CLOSECURLY", "INTEGER", "DOUBLE", "BOOLEAN", 
-			"IF", "ELSE", "VARIABLE", "A", "B", "C", "D", "E", "F", "G", "H", "I", 
-			"J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", 
-			"X", "Y", "Z", "WS"
+			null, null, null, null, null, null, null, "INTEGER", "DOUBLE", "BOOLEAN", 
+			"PLUS", "MINUS", "MULT", "DIV", "AND", "OR", "NOT", "GREATEREQUAL", "LESSEQUAL", 
+			"LESS", "GREATER", "LPAREN", "RPAREN", "OPENCURLY", "CLOSECURLY", "IF", 
+			"ELSE", "VARIABLE", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
+			"K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", 
+			"Y", "Z", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -87,7 +87,7 @@ public class AntlrDemoParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "java-escape"; }
+	public String getGrammarFileName() { return "AntlrDemo.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -151,7 +151,7 @@ public class AntlrDemoParser extends Parser {
 				setState(19); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 198451200L) != 0 );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 178324352L) != 0) );
 			setState(21);
 			match(EOF);
 			}
@@ -678,7 +678,7 @@ public class AntlrDemoParser extends Parser {
 						setState(62);
 						((OperatorExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 245760L) != 0) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1966080L) != 0)) ) {
 							((OperatorExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 						}
 						else {
@@ -699,7 +699,7 @@ public class AntlrDemoParser extends Parser {
 						setState(65);
 						((OperatorExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 6156L) != 0) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 49164L) != 0)) ) {
 							((OperatorExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 						}
 						else {
@@ -1106,8 +1106,8 @@ public class AntlrDemoParser extends Parser {
 		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0003\u0006k\b\u0006\u0001"+
 		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0000"+
 		"\u0001\b\b\u0000\u0002\u0004\u0006\b\n\f\u000e\u0000\u0004\u0001\u0000"+
-		"\t\n\u0001\u0000\u0007\b\u0001\u0000\u000e\u0011\u0002\u0000\u0002\u0003"+
-		"\u000b\f{\u0000\u0011\u0001\u0000\u0000\u0000\u0002%\u0001\u0000\u0000"+
+		"\f\r\u0001\u0000\n\u000b\u0001\u0000\u0011\u0014\u0002\u0000\u0002\u0003"+
+		"\u000e\u000f{\u0000\u0011\u0001\u0000\u0000\u0000\u0002%\u0001\u0000\u0000"+
 		"\u0000\u0004\'\u0001\u0000\u0000\u0000\u0006+\u0001\u0000\u0000\u0000"+
 		"\b5\u0001\u0000\u0000\u0000\nR\u0001\u0000\u0000\u0000\fj\u0001\u0000"+
 		"\u0000\u0000\u000el\u0001\u0000\u0000\u0000\u0010\u0012\u0003\u0002\u0001"+
@@ -1123,33 +1123,33 @@ public class AntlrDemoParser extends Parser {
 		"\"$\u0005\u0001\u0000\u0000#\"\u0001\u0000\u0000\u0000#$\u0001\u0000\u0000"+
 		"\u0000$&\u0001\u0000\u0000\u0000%\u0017\u0001\u0000\u0000\u0000%\u0018"+
 		"\u0001\u0000\u0000\u0000%\u0019\u0001\u0000\u0000\u0000%\u001a\u0001\u0000"+
-		"\u0000\u0000&\u0003\u0001\u0000\u0000\u0000\'(\u0005\u0014\u0000\u0000"+
-		"()\u0003\u0002\u0001\u0000)*\u0005\u0015\u0000\u0000*\u0005\u0001\u0000"+
+		"\u0000\u0000&\u0003\u0001\u0000\u0000\u0000\'(\u0005\u0017\u0000\u0000"+
+		"()\u0003\u0002\u0001\u0000)*\u0005\u0018\u0000\u0000*\u0005\u0001\u0000"+
 		"\u0000\u0000+,\u0003\b\u0004\u0000,\u0007\u0001\u0000\u0000\u0000-.\u0006"+
-		"\u0004\uffff\uffff\u0000./\u0005\u0012\u0000\u0000/0\u0003\b\u0004\u0000"+
-		"01\u0005\u0013\u0000\u000016\u0001\u0000\u0000\u000023\u0005\r\u0000\u0000"+
-		"36\u0003\b\u0004\u000246\u0003\n\u0005\u00005-\u0001\u0000\u0000\u0000"+
-		"52\u0001\u0000\u0000\u000054\u0001\u0000\u0000\u00006K\u0001\u0000\u0000"+
-		"\u000078\n\u0007\u0000\u000089\u0007\u0000\u0000\u00009J\u0003\b\u0004"+
-		"\b:;\n\u0006\u0000\u0000;<\u0007\u0001\u0000\u0000<J\u0003\b\u0004\u0007"+
-		"=>\n\u0005\u0000\u0000>?\u0007\u0002\u0000\u0000?J\u0003\b\u0004\u0006"+
-		"@A\n\u0004\u0000\u0000AB\u0007\u0003\u0000\u0000BJ\u0003\b\u0004\u0005"+
-		"CD\n\u0003\u0000\u0000DE\u0005\u0004\u0000\u0000EF\u0003\b\u0004\u0000"+
-		"FG\u0005\u0005\u0000\u0000GH\u0003\b\u0004\u0004HJ\u0001\u0000\u0000\u0000"+
-		"I7\u0001\u0000\u0000\u0000I:\u0001\u0000\u0000\u0000I=\u0001\u0000\u0000"+
-		"\u0000I@\u0001\u0000\u0000\u0000IC\u0001\u0000\u0000\u0000JM\u0001\u0000"+
-		"\u0000\u0000KI\u0001\u0000\u0000\u0000KL\u0001\u0000\u0000\u0000L\t\u0001"+
-		"\u0000\u0000\u0000MK\u0001\u0000\u0000\u0000NS\u0005\u0016\u0000\u0000"+
-		"OS\u0005\u0017\u0000\u0000PS\u0005\u0018\u0000\u0000QS\u0005\u001b\u0000"+
+		"\u0004\uffff\uffff\u0000./\u0005\u0015\u0000\u0000/0\u0003\b\u0004\u0000"+
+		"01\u0005\u0016\u0000\u000016\u0001\u0000\u0000\u000023\u0005\u0010\u0000"+
+		"\u000036\u0003\b\u0004\u000246\u0003\n\u0005\u00005-\u0001\u0000\u0000"+
+		"\u000052\u0001\u0000\u0000\u000054\u0001\u0000\u0000\u00006K\u0001\u0000"+
+		"\u0000\u000078\n\u0007\u0000\u000089\u0007\u0000\u0000\u00009J\u0003\b"+
+		"\u0004\b:;\n\u0006\u0000\u0000;<\u0007\u0001\u0000\u0000<J\u0003\b\u0004"+
+		"\u0007=>\n\u0005\u0000\u0000>?\u0007\u0002\u0000\u0000?J\u0003\b\u0004"+
+		"\u0006@A\n\u0004\u0000\u0000AB\u0007\u0003\u0000\u0000BJ\u0003\b\u0004"+
+		"\u0005CD\n\u0003\u0000\u0000DE\u0005\u0004\u0000\u0000EF\u0003\b\u0004"+
+		"\u0000FG\u0005\u0005\u0000\u0000GH\u0003\b\u0004\u0004HJ\u0001\u0000\u0000"+
+		"\u0000I7\u0001\u0000\u0000\u0000I:\u0001\u0000\u0000\u0000I=\u0001\u0000"+
+		"\u0000\u0000I@\u0001\u0000\u0000\u0000IC\u0001\u0000\u0000\u0000JM\u0001"+
+		"\u0000\u0000\u0000KI\u0001\u0000\u0000\u0000KL\u0001\u0000\u0000\u0000"+
+		"L\t\u0001\u0000\u0000\u0000MK\u0001\u0000\u0000\u0000NS\u0005\u0007\u0000"+
+		"\u0000OS\u0005\b\u0000\u0000PS\u0005\t\u0000\u0000QS\u0005\u001b\u0000"+
 		"\u0000RN\u0001\u0000\u0000\u0000RO\u0001\u0000\u0000\u0000RP\u0001\u0000"+
 		"\u0000\u0000RQ\u0001\u0000\u0000\u0000S\u000b\u0001\u0000\u0000\u0000"+
-		"TU\u0005\u0019\u0000\u0000UV\u0005\u0012\u0000\u0000VW\u0003\b\u0004\u0000"+
-		"WX\u0005\u0013\u0000\u0000XY\u0003\u0004\u0002\u0000Yk\u0001\u0000\u0000"+
-		"\u0000Z[\u0005\u0019\u0000\u0000[\\\u0005\u0012\u0000\u0000\\]\u0003\b"+
-		"\u0004\u0000]^\u0005\u0013\u0000\u0000^_\u0003\u0004\u0002\u0000_`\u0005"+
+		"TU\u0005\u0019\u0000\u0000UV\u0005\u0015\u0000\u0000VW\u0003\b\u0004\u0000"+
+		"WX\u0005\u0016\u0000\u0000XY\u0003\u0004\u0002\u0000Yk\u0001\u0000\u0000"+
+		"\u0000Z[\u0005\u0019\u0000\u0000[\\\u0005\u0015\u0000\u0000\\]\u0003\b"+
+		"\u0004\u0000]^\u0005\u0016\u0000\u0000^_\u0003\u0004\u0002\u0000_`\u0005"+
 		"\u001a\u0000\u0000`a\u0003\u0004\u0002\u0000ak\u0001\u0000\u0000\u0000"+
-		"bc\u0005\u0019\u0000\u0000cd\u0005\u0012\u0000\u0000de\u0003\b\u0004\u0000"+
-		"ef\u0005\u0013\u0000\u0000fg\u0003\u0004\u0002\u0000gh\u0005\u001a\u0000"+
+		"bc\u0005\u0019\u0000\u0000cd\u0005\u0015\u0000\u0000de\u0003\b\u0004\u0000"+
+		"ef\u0005\u0016\u0000\u0000fg\u0003\u0004\u0002\u0000gh\u0005\u001a\u0000"+
 		"\u0000hi\u0003\f\u0006\u0000ik\u0001\u0000\u0000\u0000jT\u0001\u0000\u0000"+
 		"\u0000jZ\u0001\u0000\u0000\u0000jb\u0001\u0000\u0000\u0000k\r\u0001\u0000"+
 		"\u0000\u0000lm\u0005\u001b\u0000\u0000mn\u0005\u0006\u0000\u0000no\u0003"+

@@ -55,8 +55,8 @@ RPAREN: ')';
 OPENCURLY: '{';
 CLOSECURLY: '}';
 
-INTEGER: [-]?[0-9]+;
-DOUBLE: [-]?[0-9]+'.'[0-9]+;
+INTEGER: MINUS?[0-9]+;
+DOUBLE: MINUS?[0-9]+'.'[0-9]+;
 BOOLEAN: T R U E
        | F A L S E;
 

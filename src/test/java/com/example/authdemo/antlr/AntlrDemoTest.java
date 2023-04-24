@@ -30,6 +30,8 @@ public class AntlrDemoTest {
     public void baseTest() {
         assertEquals(1, execute("1"));
         assertEquals(3, execute("1+2"));
+        assertEquals(-2, execute("-3+1"));
+//        assertEquals(3, execute("1+2-3"));
         assertEquals(133, execute(" 111 + 22 "));
         assertEquals(7, execute("1+2 * 3"));
         assertEquals(5, execute("1*2 + 3"));

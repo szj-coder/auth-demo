@@ -12,10 +12,11 @@ import java.util.function.Supplier;
 
 public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
 
-    private AntlrContext varContext = new AntlrContext();
+    private AntlrContext varContext;
     private Object current = null;
 
     public MyDynamicVisitor() {
+        this(new HashMap<>());
     }
 
     public MyDynamicVisitor(Map<String, Object> map) {

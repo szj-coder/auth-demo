@@ -1,4 +1,4 @@
-// Generated from java-escape by ANTLR 4.11.1
+// Generated from C:/Users/shen/Desktop/worker/auth-demo/src/main/java/com/example/authdemo/antlr\AntlrDemo.g4 by ANTLR 4.12.0
 package com.example.authdemo.antlr.gen;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
