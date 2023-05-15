@@ -23,7 +23,7 @@ public class AntlrDemoTest {
 
     @Test
     public void scriptTest() {
-        assertEquals(2, execute("1==1? 2:3"));
+        assertEquals(444, execute("a = 123;b=321;a+b"));
     }
 
     @Test
@@ -91,13 +91,7 @@ public class AntlrDemoTest {
     }
 
     private Object execute(String expression) {
-        CharStream input = CharStreams.fromString(expression);
-        AntlrDemoLexer lexer = new AntlrDemoLexer(input);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        AntlrDemoParser parser = new AntlrDemoParser(tokens);
-        parser.addParseListener(new MyAntlrListener());
-        final MyDynamicVisitor intVisitor = new MyDynamicVisitor();
-        return intVisitor.visit(parser.script());
+        return execute(expression, new HashMap<>());
     }
 
     private Object execute(String expression, Map<String, Object> map) {
@@ -105,7 +99,7 @@ public class AntlrDemoTest {
         AntlrDemoLexer lexer = new AntlrDemoLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         AntlrDemoParser parser = new AntlrDemoParser(tokens);
-        parser.addParseListener(new MyAntlrListener());
+//        parser.addParseListener(new MyAntlrListener());
         final MyDynamicVisitor intVisitor = new MyDynamicVisitor(Optional.ofNullable(map).orElse(new HashMap<>()));
         return intVisitor.visit(parser.script());
     }
