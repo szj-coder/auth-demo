@@ -6,6 +6,7 @@ import com.example.authdemo.antlr.kernal.MyAntlrListener;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -44,5 +45,19 @@ public class AntlrListenerTest {
         parser.addParseListener(listener);
         parser.script();
         return listener.getResult();
+    }
+
+    /**
+     * listener 另一种遍历方式
+     */
+    private static Object executeTest(String expression) {
+        CharStream input = CharStreams.fromString(expression);
+        AntlrDemoLexer lexer = new AntlrDemoLexer(input);
+        final CommonTokenStream tokens = new CommonTokenStream(lexer);
+        AntlrDemoParser parser = new AntlrDemoParser(tokens);
+        final ParseTreeWalker walker = new ParseTreeWalker();
+        final MyAntlrListener listener = new MyAntlrListener();
+        walker.walk(listener, parser.script());
+        return null;
     }
 }
