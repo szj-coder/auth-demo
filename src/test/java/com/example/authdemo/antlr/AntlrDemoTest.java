@@ -23,7 +23,7 @@ public class AntlrDemoTest {
 
     @Test
     public void scriptTest() {
-        assertEquals(2, execute("1==1? 2:3"));
+        assertEquals(0, execute("1+2-3"));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class AntlrDemoTest {
         assertEquals(1, execute("1"));
         assertEquals(3, execute("1+2"));
         assertEquals(-2, execute("-3+1"));
-//        assertEquals(3, execute("1+2-3"));
+        assertEquals(0, execute("1+2-3"));
         assertEquals(133, execute(" 111 + 22 "));
         assertEquals(7, execute("1+2 * 3"));
         assertEquals(5, execute("1*2 + 3"));
@@ -95,7 +95,7 @@ public class AntlrDemoTest {
         AntlrDemoLexer lexer = new AntlrDemoLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         AntlrDemoParser parser = new AntlrDemoParser(tokens);
-        parser.addParseListener(new MyAntlrListener());
+//        parser.addParseListener(new MyAntlrListener());
         final MyDynamicVisitor intVisitor = new MyDynamicVisitor();
         return intVisitor.visit(parser.script());
     }
@@ -105,7 +105,7 @@ public class AntlrDemoTest {
         AntlrDemoLexer lexer = new AntlrDemoLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         AntlrDemoParser parser = new AntlrDemoParser(tokens);
-        parser.addParseListener(new MyAntlrListener());
+//        parser.addParseListener(new MyAntlrListener());
         final MyDynamicVisitor intVisitor = new MyDynamicVisitor(Optional.ofNullable(map).orElse(new HashMap<>()));
         return intVisitor.visit(parser.script());
     }

@@ -7,7 +7,10 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
@@ -132,6 +135,8 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
                 return BaseTypePromotion.compareTo(left, right.get()) <= 0;
             case ">=":
                 return BaseTypePromotion.compareTo(left, right.get()) >= 0;
+            case "-":
+                return BaseTypePromotion.negative(left);
             default:
                 throw new RuntimeException("操作符不支持");
         }
@@ -168,20 +173,28 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
 
     @Override
     public Object visitObjFactory(AntlrDemoParser.ObjFactoryContext ctx) {
-        if (ctx.INTEGER() != null) {
-            return Integer.valueOf(ctx.getText());
-        } else if (ctx.BOOLEAN() != null) {
+        if (ctx.BOOLEAN() != null) {
             return Boolean.parseBoolean(ctx.getText());
-        } else if (ctx.DOUBLE() != null) {
-            return Double.valueOf(ctx.getText());
         } else if (ctx.VARIABLE() != null) {
             final TerminalNode variable = ctx.VARIABLE();
             if (!varContext.containsKey(ctx.getText())) {
                 throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
             }
             return varContext.getValue(variable.getText());
+        } else if (ctx.number() != null) {
+            return visit(ctx.number());
         }
         throw new RuntimeException("不识别的因子类型");
+    }
+
+    @Override
+    public Object visitNumFactory(AntlrDemoParser.NumFactoryContext ctx) {
+        if (ctx.INTEGER() != null) {
+            return Integer.valueOf(ctx.getText());
+        } else if (ctx.DOUBLE() != null) {
+            return Double.valueOf(ctx.getText());
+        }
+        throw new RuntimeException("不识别的数字类型");
     }
 
     @Override

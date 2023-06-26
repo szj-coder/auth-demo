@@ -14,6 +14,7 @@ statement: expr
             ;
 
 expr: LPAREN expr RPAREN                                                        # parenExpr
+    | op = MINUS expr                                                           # operatorExpr
     | expr (MULT | DIV) expr                                                    # multOrDiv
     | expr (PLUS | MINUS) expr                                                  # plusOrMinus
     | expr op = ('>' | '>=' | '<' | '<=') expr                                  # operatorExpr
@@ -23,11 +24,16 @@ expr: LPAREN expr RPAREN                                                        
     | factor                                                                    # factorExpr
     ;
 
-factor: INTEGER                     # objFactory
-        | DOUBLE                    # objFactory
-        | BOOLEAN                   # objFactory
+factor: BOOLEAN                     # objFactory
         | VARIABLE                  # objFactory
+        | number                    # objFactory
         ;
+
+
+number: INTEGER                     # numFactory
+        | DOUBLE                    # numFactory
+        ;
+
 
 ifExpression: IF '(' expr ')' statementBlock                            # if
             | IF '(' expr ')' statementBlock ELSE statementBlock        # ifElse
@@ -55,8 +61,8 @@ RPAREN: ')';
 OPENCURLY: '{';
 CLOSECURLY: '}';
 
-INTEGER: MINUS?[0-9]+;
-DOUBLE: MINUS?[0-9]+'.'[0-9]+;
+INTEGER: [0-9]+;
+DOUBLE: [0-9]+'.'[0-9]+;
 BOOLEAN: T R U E
        | F A L S E;
 

@@ -14,6 +14,35 @@ public class BaseTypePromotion {
     private static final List<? extends Class<? extends Number>> numberClassList = List.of(Byte.class, Short.class, Integer.class, Long.class, Float.class, Double.class);
     private static final List<?> strClassList = List.of(Character.class, String.class);
 
+    public static Object negative(Object a) {
+        try {
+            anyNotNullOrError(a);
+        } catch (Exception e) {
+            return null;
+        }
+        isBaseOrError(a);
+        final int maxOrder = promotionOrder(a);
+        if (maxOrder < 0) {
+            throw new RuntimeException(String.format("不支持 -%s操作", a));
+        }
+        if (isStr(maxOrder)) {
+            return "-" + String.valueOf(a);
+        }
+        if (maxOrder == promotionOrder(Short.class)) {
+            return -((Number) a).floatValue();
+        } else if (maxOrder == promotionOrder(Integer.class)) {
+            return -((Number) a).intValue();
+        } else if (maxOrder == promotionOrder(Long.class)) {
+            return -((Number) a).longValue();
+        } else if (maxOrder == promotionOrder(Float.class)) {
+            return -((Number) a).floatValue();
+        } else {
+            // double
+            return -((Number) a).doubleValue();
+        }
+
+    }
+
     public static int compareTo(Object a, Object b) {
         try {
             anyNotNullOrError(a, b);

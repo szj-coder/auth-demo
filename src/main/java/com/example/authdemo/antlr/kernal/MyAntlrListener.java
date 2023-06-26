@@ -61,18 +61,27 @@ public class MyAntlrListener extends AntlrDemoBaseListener {
     @Override
     public void exitObjFactory(AntlrDemoParser.ObjFactoryContext ctx) {
         Object result = null;
-        if (ctx.INTEGER() != null) {
-            result = Integer.valueOf(ctx.getText());
+        if (ctx.number() != null) {
+            result = stack.pop();
         } else if (ctx.BOOLEAN() != null) {
             result = Boolean.parseBoolean(ctx.getText());
-        } else if (ctx.DOUBLE() != null) {
-            result = Double.valueOf(ctx.getText());
         } else if (ctx.VARIABLE() != null) {
             final TerminalNode variable = ctx.VARIABLE();
             if (!varContext.containsKey(ctx.getText())) {
                 throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
             }
             result = varContext.getValue(variable.getText());
+        }
+        stack.push(result);
+    }
+
+    @Override
+    public void exitNumFactory(AntlrDemoParser.NumFactoryContext ctx) {
+        Object result = null;
+        if (ctx.INTEGER() != null) {
+            result = Integer.valueOf(ctx.getText());
+        } else {
+            result = Double.valueOf(ctx.getText());
         }
         stack.push(result);
     }

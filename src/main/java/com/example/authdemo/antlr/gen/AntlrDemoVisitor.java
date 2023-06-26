@@ -1,4 +1,4 @@
-// Generated from C:/Users/shen/Desktop/worker/auth-demo/src/main/java/com/example/authdemo/antlr\AntlrDemo.g4 by ANTLR 4.12.0
+// Generated from C:/Users/shen/Desktop/worker/github/auth-demo/src/main/java/com/example/authdemo/antlr\AntlrDemo.g4 by ANTLR 4.12.0
 package com.example.authdemo.antlr.gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -90,6 +90,13 @@ public interface AntlrDemoVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitObjFactory(AntlrDemoParser.ObjFactoryContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code numFactory}
+	 * labeled alternative in {@link AntlrDemoParser#number}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumFactory(AntlrDemoParser.NumFactoryContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code if}
 	 * labeled alternative in {@link AntlrDemoParser#ifExpression}.

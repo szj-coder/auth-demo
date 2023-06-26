@@ -1,4 +1,4 @@
-// Generated from C:/Users/shen/Desktop/worker/auth-demo/src/main/java/com/example/authdemo/antlr\AntlrDemo.g4 by ANTLR 4.12.0
+// Generated from C:/Users/shen/Desktop/worker/github/auth-demo/src/main/java/com/example/authdemo/antlr\AntlrDemo.g4 by ANTLR 4.12.0
 package com.example.authdemo.antlr.gen;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -156,6 +156,18 @@ public class AntlrDemoBaseListener implements AntlrDemoListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitObjFactory(AntlrDemoParser.ObjFactoryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumFactory(AntlrDemoParser.NumFactoryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumFactory(AntlrDemoParser.NumFactoryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
