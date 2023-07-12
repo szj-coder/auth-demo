@@ -2,7 +2,6 @@ package com.example.authdemo.antlr;
 
 import com.example.authdemo.antlr.gen.AntlrDemoLexer;
 import com.example.authdemo.antlr.gen.AntlrDemoParser;
-import com.example.authdemo.antlr.kernal.MyAntlrListener;
 import com.example.authdemo.antlr.kernal.MyDynamicVisitor;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
