@@ -1,29 +1,30 @@
 package com.example.authdemo.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldNameConstants;
 
-import java.time.ZonedDateTime;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
-/**
- * @author szj
- * @date 2022/03/04 17:11
- */
-@Data
+@Getter
+@Setter
+@ToString
+@Entity
+@FieldNameConstants
+@Table(name = "account", uniqueConstraints = {@UniqueConstraint(columnNames = Account.Fields.username)})
 public class Account {
 
+    @Id
     private String id;
 
+    @Column(name = "password", length = 20)
     private String password;
 
+    @Column(name = "username", length = 32)
     private String username;
 
-    private ZonedDateTime expTime;
-
-    public static void main(String[] args) {
-        Function<String, String> function = __ -> "a" + __;
-        System.out.println(function.apply("abc"));
-    }
+    @Column(name = "exp_time")
+    private LocalDateTime expTime;
 }

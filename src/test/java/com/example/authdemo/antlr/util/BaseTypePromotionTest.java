@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static com.example.authdemo.antlr.util.BaseTypePromotion.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BaseTypePromotionTest {
 
@@ -35,7 +34,7 @@ class BaseTypePromotionTest {
         Assertions.assertEquals("12", plus("1", "2"));
 
         Assertions.assertThrows(RuntimeException.class, () -> {
-           plus(1, new Object());
+            plus(1, new Object());
         });
         Assertions.assertThrows(RuntimeException.class, () -> {
             plus(1, null);

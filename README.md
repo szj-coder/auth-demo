@@ -1,6 +1,6 @@
 # Auth-demo
 
-> 对于 99% 的系统来说，在安全上不去做轮子，不去想发明创造，严格遵循标准就是最恰当的安全设计。  -- 周志明
+> 对于 99% 的系统来说，在安全上不去做轮子，不去想发明创造，严格遵循标准就是最恰当的安全设计。 -- 周志明
 
 ## 未来规划
 
@@ -26,7 +26,7 @@ flowchart LR
 # LeetCode
 
 - [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
-- [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 
+- [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 - [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
 - [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 - [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)

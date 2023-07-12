@@ -29,7 +29,7 @@ public class L09CQueue {
                 return -1;
             }
             if (cStack.isEmpty()) {
-                while(!stack.isEmpty()) {
+                while (!stack.isEmpty()) {
                     cStack.add(stack.pop());
                 }
             }

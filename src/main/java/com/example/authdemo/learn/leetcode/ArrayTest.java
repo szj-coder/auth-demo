@@ -8,7 +8,7 @@ public class ArrayTest {
 
         int[] num = {1, 2, 3};
         List<List<Integer>> res = new ArrayList<>();
-        List<Integer> tmp= new ArrayList<>();
+        List<Integer> tmp = new ArrayList<>();
         int[] vis = new int[num.length];
         track(res, num, tmp);
         //trackVis(res,num,new ArrayList<>(),vis);

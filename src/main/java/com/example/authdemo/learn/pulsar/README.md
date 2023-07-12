@@ -16,12 +16,12 @@
 
 ### [接入模式](https://pulsar.apache.org/docs/2.11.x/concepts-messaging/#access-mode)
 
-| 发送模式 | 描述 |
-| --- | --- |
-| shared | 共享，多个producer可以发送一个topic，这是默认的发送模式 |
-| Exclusive | 独占，如果已经有一个producer，则其他试图发布到这个topic的producer会被立即移除并失效 |
-| ExclusiveWithFencing | 独占，如果已经存在一个生产者，那么它会被移除并失效 |
-| WaitForExclusive | 独占，如果已经存在一个生产者，则新建的生产者会挂起，直到producer获取到单独的访问权限，可用于集群选主 |
+| 发送模式                 | 描述                                                     |
+|----------------------|--------------------------------------------------------|
+| shared               | 共享，多个producer可以发送一个topic，这是默认的发送模式                     |
+| Exclusive            | 独占，如果已经有一个producer，则其他试图发布到这个topic的producer会被立即移除并失效   |
+| ExclusiveWithFencing | 独占，如果已经存在一个生产者，那么它会被移除并失效                              |
+| WaitForExclusive     | 独占，如果已经存在一个生产者，则新建的生产者会挂起，直到producer获取到单独的访问权限，可用于集群选主 |
 
 ### 批处理
 
@@ -29,12 +29,13 @@
 
 一批消息的所有消息被consumer确认后，这一批消息才会被确认，这导致一批消息中没有全部确认，则会重新传递这一批消息
 
-2.6.0之后引入索引确认，borker会跟踪每个批次的确认状态，避免消息重新传递. 这个功能默认是关闭的，需要手动开启`acknowledgmentAtBatchIndexLevelEnabled=false`, 同时consumer也需要开启`.enableBatchIndexAcknowledgment(true);`，开启会导致占用更多的内存
+2.6.0之后引入索引确认，borker会跟踪每个批次的确认状态，避免消息重新传递.
+这个功能默认是关闭的，需要手动开启`acknowledgmentAtBatchIndexLevelEnabled=false`,
+同时consumer也需要开启`.enableBatchIndexAcknowledgment(true);`，开启会导致占用更多的内存
 
 ### 分块Chunking
 
 对于大的消息，可以使用分块操作，在producer分块，然后在consumer进行聚合处理
-
 
 配置：
 
@@ -69,10 +70,10 @@ Dead letter topic: 允许消息没有消费成功的消息，例如重试一定�
 
 ## Subscription modes
 
-|Subscription mode | Description | Note |
-|---|---| ---|
-|Durable |游标是持久化的，故障之后支持从最后的游标开始消费| 默认值                                                       |
-|tNonDurable|broker停止游标会丢失，无法从最后的游标开始消费|Reader’s subscription mode is NonDurable in nature and it does not prevent data in a topic from being deleted. Reader’s subscription mode can not be changed.|
+| Subscription mode | Description                | Note                                                                                                                                                          |
+|-------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Durable           | 游标是持久化的，故障之后支持从最后的游标开始消费   | 默认值                                                                                                                                                           |
+| tNonDurable       | broker停止游标会丢失，无法从最后的游标开始消费 | Reader’s subscription mode is NonDurable in nature and it does not prevent data in a topic from being deleted. Reader’s subscription mode can not be changed. |
 
 ## Multi-topic subscriptions
 
