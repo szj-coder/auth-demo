@@ -19,7 +19,7 @@ public class Account {
     @Id
     private String id;
 
-    @Column(name = "password", length = 20)
+    @Column(name = "password", length = 128)
     private String password;
 
     @Column(name = "username", length = 32)

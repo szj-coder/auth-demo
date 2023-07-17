@@ -2,6 +2,7 @@ package com.example.authdemo.service;
 
 import com.example.authdemo.auth.Role;
 import com.example.authdemo.model.AccountDetails;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsPasswordService;
@@ -23,7 +24,7 @@ public class AccountDetailsServiceImpl implements UserDetailsPasswordService, Us
     private static final ConcurrentHashMap<String, AccountDetails> USER_MAP = new ConcurrentHashMap<>();
     private final PasswordEncoder passwordEncoder;
 
-    public AccountDetailsServiceImpl(PasswordEncoder passwordEncoder) {
+    public AccountDetailsServiceImpl(@Autowired PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
         AccountDetails adminDetail = new AccountDetails();
         adminDetail.setUsername("admin");

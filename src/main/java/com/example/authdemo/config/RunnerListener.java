@@ -4,10 +4,9 @@ import com.example.authdemo.dao.AccountDao;
 import com.example.authdemo.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextStartedEvent;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Nonnull;
@@ -18,7 +17,12 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class RunnerListener implements ApplicationListener<ApplicationStartedEvent> {
 
+    public static final String ROOT_USERNAME = "root";
+    private final static String defaultPassword = "123456";
+
     private final AccountDao accountDao;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Override
     public void onApplicationEvent(@Nonnull ApplicationStartedEvent start) {
@@ -31,7 +35,7 @@ public class RunnerListener implements ApplicationListener<ApplicationStartedEve
             if (i == 0) {
                 account.setUsername("root");
             }
-            account.setPassword("123456");
+            account.setPassword(passwordEncoder.encode(defaultPassword));
             accounts.add(account);
         }
         accountDao.saveAll(accounts);

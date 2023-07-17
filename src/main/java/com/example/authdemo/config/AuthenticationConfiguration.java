@@ -21,7 +21,7 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
     private final PasswordEncoder passwordEncoder;
 
     private final AccountDetailsServiceImpl myUserDetailsService;
-    private final UsernamePasswordAuthenticationProvider usernamePasswordAuthenticationProvider;
+    private final DemoAuthenticationProvider usernamePasswordAuthenticationProvider;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -31,10 +31,10 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/hello/**").permitAll()
-                .anyRequest().permitAll()
+        http.authorizeRequests()
+                .antMatchers("/hello/**")
+                .permitAll().anyRequest()
+                .permitAll()
                 .and()
                 .formLogin().permitAll();
     }
