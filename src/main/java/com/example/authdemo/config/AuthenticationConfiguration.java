@@ -32,11 +32,10 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/hello/**")
-                .permitAll().anyRequest()
-                .permitAll()
+                .antMatchers("/hello/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin().permitAll();
+                .formLogin().defaultSuccessUrl("/user").permitAll();
     }
 
 }

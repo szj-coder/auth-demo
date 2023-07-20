@@ -30,12 +30,14 @@ public class RunnerListener implements ApplicationListener<ApplicationStartedEve
         final ArrayList<Account> accounts = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             final Account account = new Account();
-            account.setId(String.valueOf(i));
-            account.setUsername(String.valueOf('a' + i));
+            account.setUsername("a" + i);
             if (i == 0) {
-                account.setUsername("root");
+                account.setUsername(ROOT_USERNAME);
             }
+            account.setId(account.getUsername());
             account.setPassword(passwordEncoder.encode(defaultPassword));
+            account.setLocked(false);
+            account.setEnabled(true);
             accounts.add(account);
         }
         accountDao.saveAll(accounts);

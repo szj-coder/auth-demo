@@ -1,4 +1,4 @@
-package com.example.authdemo.statemachine;
+package com.example.authdemo.learn.statemachine;
 
 /**
  * @author szj

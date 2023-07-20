@@ -27,4 +27,10 @@ public class Account {
 
     @Column(name = "exp_time")
     private LocalDateTime expTime;
+
+    @Column(name = "locked")
+    private Boolean locked;
+
+    @Column(name = "enabled")
+    private Boolean enabled;
 }

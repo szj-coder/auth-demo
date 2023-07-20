@@ -1,4 +1,4 @@
-package com.example.authdemo.statemachine;
+package com.example.authdemo.learn.statemachine;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.mina.statemachine.StateMachine;
