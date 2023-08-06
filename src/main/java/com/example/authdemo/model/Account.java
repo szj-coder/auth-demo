@@ -7,6 +7,7 @@ import lombok.experimental.FieldNameConstants;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -33,4 +34,9 @@ public class Account {
 
     @Column(name = "enabled")
     private Boolean enabled;
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

@@ -18,6 +18,10 @@ public class AccountDetails implements UserDetails {
     @Setter
     private Account account;
 
+    public AccountDetails(Account account) {
+        this.account = account;
+    }
+
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = new HashSet<>(authorities);
     }
@@ -55,5 +59,21 @@ public class AccountDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return account.getEnabled();
+    }
+
+    @Override
+    public int hashCode() {
+        return account.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof AccountDetails)) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        return this.hashCode() == obj.hashCode();
     }
 }

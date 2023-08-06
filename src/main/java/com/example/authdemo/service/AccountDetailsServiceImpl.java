@@ -36,9 +36,8 @@ public class AccountDetailsServiceImpl implements UserDetailsPasswordService, Us
         final AccountDetails accountDetails = (AccountDetails) user;
         final Account saveAccount = accountDao.save(accountDetails.getAccount());
 
-        final AccountDetails resultDetails = new AccountDetails();
+        final AccountDetails resultDetails = new AccountDetails(saveAccount);
         resultDetails.setAuthorities(accountDetails.getAuthorities());
-        resultDetails.setAccount(saveAccount);
         return resultDetails;
     }
 
@@ -53,10 +52,8 @@ public class AccountDetailsServiceImpl implements UserDetailsPasswordService, Us
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         final Account account = accountDao.findById(username)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("用户<%s>不存在", username)));
-        final AccountDetails userDetails = new AccountDetails();
-        userDetails.setAccount(account);
         // todo
 //        userDetails.setAuthorities();
-        return userDetails;
+        return new AccountDetails(account);
     }
 }

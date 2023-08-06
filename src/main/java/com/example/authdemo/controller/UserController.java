@@ -24,7 +24,8 @@ public class UserController {
     @GetMapping
     public String getCurrentUser() {
         log.info(SecurityContextHolder.getContext().getAuthentication().toString());
-        return SecurityContextHolder.getContext().getAuthentication().getDetails().toString();
+        final String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        return String.format("hello %s\n", name) + SecurityContextHolder.getContext().getAuthentication().getDetails().toString();
     }
 
     @GetMapping("{username}")

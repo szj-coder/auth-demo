@@ -20,6 +20,8 @@ spring:
     platform: h2
     settings:
       web-allow-others: true
+  thymeleaf:
+    cache: false
 server:
   port: 8080
   servlet:
