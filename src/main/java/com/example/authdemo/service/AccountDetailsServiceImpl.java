@@ -4,6 +4,7 @@ import com.example.authdemo.dao.AccountDao;
 import com.example.authdemo.model.Account;
 import com.example.authdemo.model.AccountDetails;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsPasswordService;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+
+import java.util.Collections;
 
 /**
  * @author szj
@@ -54,6 +57,9 @@ public class AccountDetailsServiceImpl implements UserDetailsPasswordService, Us
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("用户<%s>不存在", username)));
         // todo
 //        userDetails.setAuthorities();
-        return new AccountDetails(account);
+
+        final AccountDetails accountDetails = new AccountDetails(account);
+        accountDetails.setAuthorities(Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN")));
+        return accountDetails;
     }
 }
