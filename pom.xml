@@ -111,6 +111,10 @@
             <artifactId>libphonenumber</artifactId>
             <version>${libphonenumber.version}</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
