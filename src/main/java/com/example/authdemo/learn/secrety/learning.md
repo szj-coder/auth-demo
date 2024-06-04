@@ -372,3 +372,8 @@ public class OAuth2AuthorizationCodeGrantFilter extends OncePerRequestFilter {
 2. 调用授权服务，获取accessTokenResponse
 
 授权流程结束,（撒花🎉🎉🎉
+
+## 登出
+
+如果使用OIDC则有一个登出流程
+
