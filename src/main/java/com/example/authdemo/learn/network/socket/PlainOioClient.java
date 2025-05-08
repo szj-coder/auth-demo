@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 普通Io服务
@@ -22,7 +23,7 @@ public class PlainOioClient {
                     OutputStream out;
                     try {
                         out = clientSocket.getOutputStream();
-                        out.write("Hi!\r\n".getBytes(Charset.forName("UTF-8")));
+                        out.write("Hi!\r\n".getBytes(StandardCharsets.UTF_8));
                         out.flush();
                         clientSocket.close();
 
