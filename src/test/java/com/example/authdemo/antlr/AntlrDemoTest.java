@@ -90,20 +90,20 @@ public class AntlrDemoTest {
     }
 
     private Object execute(String expression) {
-        CharStream input = CharStreams.fromString(expression);
-        AntlrDemoLexer lexer = new AntlrDemoLexer(input);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        AntlrDemoParser parser = new AntlrDemoParser(tokens);
+        final CharStream input = CharStreams.fromString(expression);
+        final AntlrDemoLexer lexer = new AntlrDemoLexer(input);
+        final CommonTokenStream tokens = new CommonTokenStream(lexer);
+        final AntlrDemoParser parser = new AntlrDemoParser(tokens);
 //        parser.addParseListener(new MyAntlrListener());
         final MyDynamicVisitor intVisitor = new MyDynamicVisitor();
         return intVisitor.visit(parser.script());
     }
 
     private Object execute(String expression, Map<String, Object> map) {
-        CharStream input = CharStreams.fromString(expression);
-        AntlrDemoLexer lexer = new AntlrDemoLexer(input);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        AntlrDemoParser parser = new AntlrDemoParser(tokens);
+        final CharStream input = CharStreams.fromString(expression);
+        final AntlrDemoLexer lexer = new AntlrDemoLexer(input);
+        final CommonTokenStream tokens = new CommonTokenStream(lexer);
+        final AntlrDemoParser parser = new AntlrDemoParser(tokens);
 //        parser.addParseListener(new MyAntlrListener());
         final MyDynamicVisitor intVisitor = new MyDynamicVisitor(Optional.ofNullable(map).orElse(new HashMap<>()));
         return intVisitor.visit(parser.script());

@@ -14,10 +14,10 @@ public class RequestDecoder extends ReplayingDecoder<RequestData> {
 
     @Override
     protected void decode(ChannelHandlerContext ctx,
-                          ByteBuf in, List<Object> out) throws Exception {
-        RequestData data = new RequestData();
+                    ByteBuf in, List<Object> out) throws Exception {
+        final RequestData data = new RequestData();
         data.setId(in.readInt());
-        int strLen = in.readInt();
+        final int strLen = in.readInt();
         if (strLen < 0) {
             out.add(data);
             return;

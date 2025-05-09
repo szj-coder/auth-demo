@@ -20,12 +20,12 @@ public class NettyClient {
 
 
     public static void main(String[] args) throws Exception {
-        String host = "localhost";
-        int port = 8080;
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        final String host = "localhost";
+        final int port = 8080;
+        final EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            Bootstrap b = new Bootstrap();
+            final Bootstrap b = new Bootstrap();
             b.group(workerGroup);
             b.channel(NioSocketChannel.class);
             b.option(ChannelOption.SO_KEEPALIVE, true);
@@ -35,18 +35,18 @@ public class NettyClient {
                     ch.pipeline().addLast(new RequestDataEncoder(), new ResponseDataDecoder(), new ClientHandler());
                 }
             });
-            ChannelFuture f = b.connect(host, port).sync();
-            Channel channel = f.channel();
+            final ChannelFuture f = b.connect(host, port).sync();
+            final Channel channel = f.channel();
             int num = 0;
             while (true) {
-                Scanner scanner = new Scanner(System.in);
-                RequestData data = new RequestData(num++, scanner.nextLine());
+                final Scanner scanner = new Scanner(System.in);
+                final RequestData data = new RequestData(num++, scanner.nextLine());
                 if ("close".equalsIgnoreCase(data.getTime())) {
                     channel.closeFuture().sync();
                     break;
                 }
                 threadPoolExecutor.execute(() -> {
-                    Channel c = f.channel();
+                    final Channel c = f.channel();
                     c.writeAndFlush(data);
                     System.out.println("发送消息：" + data);
                 });

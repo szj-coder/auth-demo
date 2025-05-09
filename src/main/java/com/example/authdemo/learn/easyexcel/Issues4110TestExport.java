@@ -28,7 +28,7 @@ public class Issues4110TestExport {
 //    }
 
     public static void main(String[] args) {
-        DemoData data = new DemoData();
+        final DemoData data = new DemoData();
         data.setAttackType(new String[]{"A-attackType" + 1, "B-attackType" + 2});
         data.setARealIp(new String[]{"A-xRealIp" + 3, "B-xRealIp" + 4});
         System.out.println(BeanMap.create(data));
@@ -41,9 +41,9 @@ public class Issues4110TestExport {
     }
 
     private static List<DemoData> data() {
-        List<DemoData> list = new ArrayList<>();
+        final List<DemoData> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            DemoData data = new DemoData();
+            final DemoData data = new DemoData();
             data.setAttackType(new String[]{"A-attackType" + i, "B-attackType" + i});
             data.setARealIp(new String[]{"A-xRealIp" + i, "B-xRealIp" + i});
             list.add(data);

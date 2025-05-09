@@ -9,12 +9,12 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class ResponseDataEncoder
-        extends MessageToByteEncoder<ResponseData> {
+                extends MessageToByteEncoder<ResponseData> {
     private final Charset charset = StandardCharsets.UTF_8;
 
     @Override
     protected void encode(ChannelHandlerContext ctx,
-                          ResponseData msg, ByteBuf out) throws Exception {
+                    ResponseData msg, ByteBuf out) throws Exception {
         out.writeInt(msg.responseId);
         out.writeInt(msg.getDesc().length());
         out.writeCharSequence(msg.getDesc(), charset);

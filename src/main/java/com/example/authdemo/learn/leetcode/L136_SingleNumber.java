@@ -14,7 +14,7 @@ public class L136_SingleNumber {
     }
 
     public static void main(String[] args) {
-        int[] nums = {4, 1, 2, 1, 2};
+        final int[] nums = {4, 1, 2, 1, 2};
         System.out.println(singleNumber(nums));
     }
 }

@@ -11,7 +11,7 @@ public class L4_FindMedianSortedArrays {
     }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int[] nums = new int[2000];
+        final int[] nums = new int[2000];
         int i, j, k;
         i = j = k = 0;
         while (i < nums1.length || j < nums2.length) {

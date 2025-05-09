@@ -16,7 +16,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        RequestData msg = new RequestData();
+        final RequestData msg = new RequestData();
         msg.setId(new Random().nextInt(100));
         msg.setTime(LocalTime.now().toString());
         System.out.println("=== build msg:" + msg);

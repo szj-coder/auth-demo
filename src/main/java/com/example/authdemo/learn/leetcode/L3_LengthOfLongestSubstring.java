@@ -10,8 +10,8 @@ class L3_LengthOfLongestSubstring {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        char[] chars = s.toCharArray();
-        int[] marks = new int[200];
+        final char[] chars = s.toCharArray();
+        final int[] marks = new int[200];
         int end = 0;
         int count = 0;
         int max = 0;

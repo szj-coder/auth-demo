@@ -54,7 +54,7 @@ public class AccountDetailsServiceImpl implements UserDetailsPasswordService, Us
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         final Account account = accountDao.findById(username)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format("用户<%s>不存在", username)));
+                        .orElseThrow(() -> new UsernameNotFoundException("用户<%s>不存在".formatted(username)));
         // todo
 //        userDetails.setAuthorities();
 

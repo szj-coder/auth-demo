@@ -21,15 +21,15 @@ public class RowsParser extends Parser {
 
     protected static final DFA[] _decisionToDFA;
     protected static final PredictionContextCache _sharedContextCache =
-            new PredictionContextCache();
+                    new PredictionContextCache();
     public static final int
-            TAB = 1, NL = 2, STUFF = 3;
+                    TAB = 1, NL = 2, STUFF = 3;
     public static final int
-            RULE_file = 0, RULE_row = 1;
+                    RULE_file = 0, RULE_row = 1;
 
     private static String[] makeRuleNames() {
         return new String[]{
-                "file", "row"
+                        "file", "row"
         };
     }
 
@@ -37,7 +37,7 @@ public class RowsParser extends Parser {
 
     private static String[] makeLiteralNames() {
         return new String[]{
-                null, "'\\t'"
+                        null, "'\\t'"
         };
     }
 
@@ -45,7 +45,7 @@ public class RowsParser extends Parser {
 
     private static String[] makeSymbolicNames() {
         return new String[]{
-                null, "TAB", "NL", "STUFF"
+                        null, "TAB", "NL", "STUFF"
         };
     }
 
@@ -154,7 +154,7 @@ public class RowsParser extends Parser {
     }
 
     public final FileContext file() throws RecognitionException {
-        FileContext _localctx = new FileContext(_ctx, getState());
+        final FileContext _localctx = new FileContext(_ctx, getState());
         enterRule(_localctx, 0, RULE_file);
         try {
             enterOuterAlt(_localctx, 1);
@@ -216,7 +216,7 @@ public class RowsParser extends Parser {
     }
 
     public final RowContext row() throws RecognitionException {
-        RowContext _localctx = new RowContext(_ctx, getState());
+        final RowContext _localctx = new RowContext(_ctx, getState());
         enterRule(_localctx, 2, RULE_row);
         int _la;
         try {
@@ -253,18 +253,18 @@ public class RowsParser extends Parser {
     }
 
     public static final String _serializedATN =
-            "\u0004\u0001\u0003\u000e\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001" +
-                    "\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0004\u0001" +
-                    "\n\b\u0001\u000b\u0001\f\u0001\u000b\u0001\u0001\u0000\u0000\u0002\u0000" +
-                    "\u0002\u0000\u0000\f\u0000\u0004\u0001\u0000\u0000\u0000\u0002\t\u0001" +
-                    "\u0000\u0000\u0000\u0004\u0005\u0003\u0002\u0001\u0000\u0005\u0006\u0005" +
-                    "\u0002\u0000\u0000\u0006\u0001\u0001\u0000\u0000\u0000\u0007\b\u0005\u0003" +
-                    "\u0000\u0000\b\n\u0006\u0001\uffff\uffff\u0000\t\u0007\u0001\u0000\u0000" +
-                    "\u0000\n\u000b\u0001\u0000\u0000\u0000\u000b\t\u0001\u0000\u0000\u0000" +
-                    "\u000b\f\u0001\u0000\u0000\u0000\f\u0003\u0001\u0000\u0000\u0000\u0001" +
-                    "\u000b";
+                    "\u0004\u0001\u0003\u000e\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001" +
+                                    "\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0004\u0001" +
+                                    "\n\b\u0001\u000b\u0001\f\u0001\u000b\u0001\u0001\u0000\u0000\u0002\u0000" +
+                                    "\u0002\u0000\u0000\f\u0000\u0004\u0001\u0000\u0000\u0000\u0002\t\u0001" +
+                                    "\u0000\u0000\u0000\u0004\u0005\u0003\u0002\u0001\u0000\u0005\u0006\u0005" +
+                                    "\u0002\u0000\u0000\u0006\u0001\u0001\u0000\u0000\u0000\u0007\b\u0005\u0003" +
+                                    "\u0000\u0000\b\n\u0006\u0001\uffff\uffff\u0000\t\u0007\u0001\u0000\u0000" +
+                                    "\u0000\n\u000b\u0001\u0000\u0000\u0000\u000b\t\u0001\u0000\u0000\u0000" +
+                                    "\u000b\f\u0001\u0000\u0000\u0000\f\u0003\u0001\u0000\u0000\u0000\u0001" +
+                                    "\u000b";
     public static final ATN _ATN =
-            new ATNDeserializer().deserialize(_serializedATN.toCharArray());
+                    new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 
     static {
         _decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];

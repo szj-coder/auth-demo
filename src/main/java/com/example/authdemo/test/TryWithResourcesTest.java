@@ -11,7 +11,7 @@ import java.io.Closeable;
 public class TryWithResourcesTest {
 
     public static void main(String[] args) {
-        A a2 = new A("3");
+        final A a2 = new A("3");
         try (A a = new A("1");
              A a1 = new A("2");
              a2) {

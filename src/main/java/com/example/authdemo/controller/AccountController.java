@@ -20,6 +20,6 @@ public class AccountController {
         final Account account = new Account();
         account.setUsername(username);
         return accountDao.findOne(Example.of(account)).orElseThrow(() ->
-                new RuntimeException("username not exist."));
+                        new RuntimeException("username not exist."));
     }
 }

@@ -13,7 +13,7 @@ public class L224_Calculate {
     }
 
     public int calculate(String s) {
-        Stack<Integer> stack = new Stack<>();
+        final Stack<Integer> stack = new Stack<>();
         stack.push(1);
         int ret = 0;
         int sign = 1;

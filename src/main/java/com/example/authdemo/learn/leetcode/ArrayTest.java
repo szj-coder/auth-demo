@@ -6,10 +6,10 @@ import java.util.List;
 public class ArrayTest {
     public static void main(String[] args) {
 
-        int[] num = {1, 2, 3};
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> tmp = new ArrayList<>();
-        int[] vis = new int[num.length];
+        final int[] num = {1, 2, 3};
+        final List<List<Integer>> res = new ArrayList<>();
+        final List<Integer> tmp = new ArrayList<>();
+        final int[] vis = new int[num.length];
         track(res, num, tmp);
         //trackVis(res,num,new ArrayList<>(),vis);
         for (List<Integer> re : res) {

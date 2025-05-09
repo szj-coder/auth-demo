@@ -46,16 +46,16 @@ public class AuthenticationConfiguration {
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript(JdbcDaoImpl.DEFAULT_USER_SCHEMA_DDL_LOCATION)
-                .build();
+                        .setType(EmbeddedDatabaseType.H2)
+                        .addScript(JdbcDaoImpl.DEFAULT_USER_SCHEMA_DDL_LOCATION)
+                        .build();
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, UserDetailsService userDetailsService) throws Exception {
         final InMemoryTokenRepositoryImpl tokenRepository = new InMemoryTokenRepositoryImpl();
         final PersistentTokenBasedRememberMeServices rememberMeServices =
-                new PersistentTokenBasedRememberMeServices("DemoPersistentToken", userDetailsService, tokenRepository);
+                        new PersistentTokenBasedRememberMeServices("DemoPersistentToken", userDetailsService, tokenRepository);
         // 静态配置
         http.authorizeHttpRequests(requests -> requests
                         .requestMatchers("/hello/**").permitAll()
@@ -75,13 +75,13 @@ public class AuthenticationConfiguration {
                         );
         http.securityContext(securitySecurityContextConfigurer -> securitySecurityContextConfigurer
                         .securityContextRepository(new HttpSessionSecurityContextRepository()))
-                .sessionManagement(session -> session
-                        .invalidSessionUrl("/login")
-                        .maximumSessions(1) // 阻止了一个用户多次登录。第二次登录会导致第一次登录无效。
-                        .and().sessionFixation().migrateSession() // default Session Fixation
-                ).rememberMe(httpSecurityRememberMeConfigurer -> httpSecurityRememberMeConfigurer
-                        .rememberMeServices(rememberMeServices)
-                        .alwaysRemember(true));
+                        .sessionManagement(session -> session
+                                                        .invalidSessionUrl("/login")
+                                                        .maximumSessions(1) // 阻止了一个用户多次登录。第二次登录会导致第一次登录无效。
+                                                        .and().sessionFixation().migrateSession() // default Session Fixation
+                        ).rememberMe(httpSecurityRememberMeConfigurer -> httpSecurityRememberMeConfigurer
+                                        .rememberMeServices(rememberMeServices)
+                                        .alwaysRemember(true));
         return http.build();
     }
 

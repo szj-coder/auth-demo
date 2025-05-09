@@ -25,7 +25,7 @@ public class SerializedLambdaLearn {
 
         System.out.println("-------");
 
-        DemoFunction<String, String> function = String::valueOf;
+        final DemoFunction<String, String> function = String::valueOf;
         final Method method = function.getClass().getDeclaredMethod("writeReplace");
         method.setAccessible(true);
         final SerializedLambda lambda = (SerializedLambda) method.invoke(function);
@@ -75,7 +75,7 @@ public class SerializedLambdaLearn {
     }
 
     @FunctionalInterface
-    public interface DemoFunction<T,R> extends Serializable {
+    public interface DemoFunction<T, R> extends Serializable {
         R apply(T t);
     }
 }

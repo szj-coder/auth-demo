@@ -16,8 +16,8 @@ public class DemoSecurityMetadataSource implements FilterInvocationSecurityMetad
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
-        String requestURI =
-                ((FilterInvocation) object).getRequest().getRequestURI();
+        final String requestURI =
+                                        ((FilterInvocation) object).getRequest().getRequestURI();
         log.info("security metadata, access url:" + requestURI);
         return SecurityConfig.createList("ROLE_ADMIN");
     }

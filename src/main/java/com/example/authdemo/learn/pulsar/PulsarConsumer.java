@@ -11,14 +11,14 @@ import java.util.concurrent.TimeUnit;
 public class PulsarConsumer {
 
     public static void main(String[] args) throws PulsarClientException {
-        PulsarClient client = PulsarClient.builder()
-                .serviceUrl("pulsar://localhost:6650")
-                .build();
-        Consumer<String> consumer = client.newConsumer(Schema.STRING)
-                .topic("test")
-                .consumerName("testConsumer")
-                .subscriptionName("testSubscriptionName")
-                .subscribe();
+        final PulsarClient client = PulsarClient.builder()
+                                        .serviceUrl("pulsar://localhost:6650")
+                                        .build();
+        final Consumer<String> consumer = client.newConsumer(Schema.STRING)
+                                        .topic("test")
+                                        .consumerName("testConsumer")
+                                        .subscriptionName("testSubscriptionName")
+                                        .subscribe();
         new Thread(() -> {
             long dateSum = 0L;
             long dateCount = 0L;

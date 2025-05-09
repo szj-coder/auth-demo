@@ -36,11 +36,11 @@ public class L70ClimbStairs {
         if (n == 1) {
             return 1;
         }
-        int[] list = new int[n];
+        final int[] list = new int[n];
         list[0] = 1;
         list[1] = 2;
         for (int i = 2; i < n; i++) {
-            list[i] = list[i -1] + list[i -2];
+            list[i] = list[i - 1] + list[i - 2];
         }
         return list[n - 1];
     }

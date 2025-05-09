@@ -10,8 +10,8 @@ public class ThreadUtil {
 
     @SneakyThrows
     public static void main(String[] args) {
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor(
-                Executors.defaultThreadFactory());
+        final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor(
+                                        Executors.defaultThreadFactory());
         System.out.println(System.currentTimeMillis());
         executor.scheduleWithFixedDelay(() -> {
             System.out.println(System.currentTimeMillis() + "  Hi!");

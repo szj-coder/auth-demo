@@ -15,7 +15,7 @@ public class CompletableFutureLearn {
         CompletableFuture<String> future = null;
         CompletableFuture<String> future1 = null;
         for (int i = 0; i < 10; i++) {
-            int num = i;
+            final int num = i;
             if (future == null) {
                 future = build(String.valueOf(i));
             } else {

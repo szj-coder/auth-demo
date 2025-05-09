@@ -1,0 +1,6 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: springBoot
+recipeList:
+  - org.openrewrite.java.OrderImports
+  - org.openrewrite.staticanalysis.AddSerialAnnotationToSerialVersionUID
+  - org.openrewrite.staticanalysis.FinalizeLocalVariables

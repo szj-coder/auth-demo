@@ -13,8 +13,8 @@ public class L42_Trap {
     }
 
     public int trap(int[] height) {
-        int[] leftMax = new int[height.length];
-        int[] rightMax = new int[height.length];
+        final int[] leftMax = new int[height.length];
+        final int[] rightMax = new int[height.length];
         int max = 0;
         for (int i = 0; i < height.length; i++) {
             leftMax[i] = max;

@@ -22,9 +22,9 @@ public class TapeDeckHandlerTest {
     @Test
     public void stateException() {
         try {
-            TapeDeckHandler handler = new TapeDeckHandler();
-            StateMachine sm = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.LOADED, handler);
-            TapeDeck deck1 = new StateMachineProxyBuilder().create(TapeDeck.class, sm);
+            final TapeDeckHandler handler = new TapeDeckHandler();
+            final StateMachine sm = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.LOADED, handler);
+            final TapeDeck deck1 = new StateMachineProxyBuilder().create(TapeDeck.class, sm);
             deck1.load("The Knife -- Silent Shout");
             System.out.println(sm.getStates());
             deck1.eject();

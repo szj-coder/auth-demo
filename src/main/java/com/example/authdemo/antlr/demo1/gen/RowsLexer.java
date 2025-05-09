@@ -16,20 +16,20 @@ public class RowsLexer extends Lexer {
 
     protected static final DFA[] _decisionToDFA;
     protected static final PredictionContextCache _sharedContextCache =
-            new PredictionContextCache();
+                    new PredictionContextCache();
     public static final int
-            TAB = 1, NL = 2, STUFF = 3;
+                    TAB = 1, NL = 2, STUFF = 3;
     public static String[] channelNames = {
-            "DEFAULT_TOKEN_CHANNEL", "HIDDEN"
+                    "DEFAULT_TOKEN_CHANNEL", "HIDDEN"
     };
 
     public static String[] modeNames = {
-            "DEFAULT_MODE"
+                    "DEFAULT_MODE"
     };
 
     private static String[] makeRuleNames() {
         return new String[]{
-                "TAB", "NL", "STUFF"
+                        "TAB", "NL", "STUFF"
         };
     }
 
@@ -37,7 +37,7 @@ public class RowsLexer extends Lexer {
 
     private static String[] makeLiteralNames() {
         return new String[]{
-                null, "'\\t'"
+                        null, "'\\t'"
         };
     }
 
@@ -45,7 +45,7 @@ public class RowsLexer extends Lexer {
 
     private static String[] makeSymbolicNames() {
         return new String[]{
-                null, "TAB", "NL", "STUFF"
+                        null, "TAB", "NL", "STUFF"
         };
     }
 
@@ -121,24 +121,24 @@ public class RowsLexer extends Lexer {
     }
 
     public static final String _serializedATN =
-            "\u0004\u0000\u0003\u0015\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002" +
-                    "\u0001\u0007\u0001\u0002\u0002\u0007\u0002\u0001\u0000\u0001\u0000\u0001" +
-                    "\u0000\u0001\u0000\u0001\u0001\u0003\u0001\r\b\u0001\u0001\u0001\u0001" +
-                    "\u0001\u0001\u0002\u0004\u0002\u0012\b\u0002\u000b\u0002\f\u0002\u0013" +
-                    "\u0000\u0000\u0003\u0001\u0001\u0003\u0002\u0005\u0003\u0001\u0000\u0001" +
-                    "\u0002\u0000\t\n\r\r\u0016\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0003" +
-                    "\u0001\u0000\u0000\u0000\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0007" +
-                    "\u0001\u0000\u0000\u0000\u0003\f\u0001\u0000\u0000\u0000\u0005\u0011\u0001" +
-                    "\u0000\u0000\u0000\u0007\b\u0005\t\u0000\u0000\b\t\u0001\u0000\u0000\u0000" +
-                    "\t\n\u0006\u0000\u0000\u0000\n\u0002\u0001\u0000\u0000\u0000\u000b\r\u0005" +
-                    "\r\u0000\u0000\f\u000b\u0001\u0000\u0000\u0000\f\r\u0001\u0000\u0000\u0000" +
-                    "\r\u000e\u0001\u0000\u0000\u0000\u000e\u000f\u0005\n\u0000\u0000\u000f" +
-                    "\u0004\u0001\u0000\u0000\u0000\u0010\u0012\b\u0000\u0000\u0000\u0011\u0010" +
-                    "\u0001\u0000\u0000\u0000\u0012\u0013\u0001\u0000\u0000\u0000\u0013\u0011" +
-                    "\u0001\u0000\u0000\u0000\u0013\u0014\u0001\u0000\u0000\u0000\u0014\u0006" +
-                    "\u0001\u0000\u0000\u0000\u0003\u0000\f\u0013\u0001\u0006\u0000\u0000";
+                    "\u0004\u0000\u0003\u0015\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002" +
+                                    "\u0001\u0007\u0001\u0002\u0002\u0007\u0002\u0001\u0000\u0001\u0000\u0001" +
+                                    "\u0000\u0001\u0000\u0001\u0001\u0003\u0001\r\b\u0001\u0001\u0001\u0001" +
+                                    "\u0001\u0001\u0002\u0004\u0002\u0012\b\u0002\u000b\u0002\f\u0002\u0013" +
+                                    "\u0000\u0000\u0003\u0001\u0001\u0003\u0002\u0005\u0003\u0001\u0000\u0001" +
+                                    "\u0002\u0000\t\n\r\r\u0016\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0003" +
+                                    "\u0001\u0000\u0000\u0000\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0007" +
+                                    "\u0001\u0000\u0000\u0000\u0003\f\u0001\u0000\u0000\u0000\u0005\u0011\u0001" +
+                                    "\u0000\u0000\u0000\u0007\b\u0005\t\u0000\u0000\b\t\u0001\u0000\u0000\u0000" +
+                                    "\t\n\u0006\u0000\u0000\u0000\n\u0002\u0001\u0000\u0000\u0000\u000b\r\u0005" +
+                                    "\r\u0000\u0000\f\u000b\u0001\u0000\u0000\u0000\f\r\u0001\u0000\u0000\u0000" +
+                                    "\r\u000e\u0001\u0000\u0000\u0000\u000e\u000f\u0005\n\u0000\u0000\u000f" +
+                                    "\u0004\u0001\u0000\u0000\u0000\u0010\u0012\b\u0000\u0000\u0000\u0011\u0010" +
+                                    "\u0001\u0000\u0000\u0000\u0012\u0013\u0001\u0000\u0000\u0000\u0013\u0011" +
+                                    "\u0001\u0000\u0000\u0000\u0013\u0014\u0001\u0000\u0000\u0000\u0014\u0006" +
+                                    "\u0001\u0000\u0000\u0000\u0003\u0000\f\u0013\u0001\u0006\u0000\u0000";
     public static final ATN _ATN =
-            new ATNDeserializer().deserialize(_serializedATN.toCharArray());
+                    new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 
     static {
         _decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];

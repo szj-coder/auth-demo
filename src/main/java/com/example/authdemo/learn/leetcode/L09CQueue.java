@@ -5,7 +5,7 @@ import java.util.Stack;
 public class L09CQueue {
 
     public static void main(String[] args) {
-        CQueue cQueue = new CQueue();
+        final CQueue cQueue = new CQueue();
         cQueue.appendTail(3);
         System.out.println(cQueue.deleteHead());
         System.out.println(cQueue.deleteHead());
@@ -24,7 +24,7 @@ public class L09CQueue {
         }
 
         public int deleteHead() {
-            Stack<Integer> stack = mStack;
+            final Stack<Integer> stack = mStack;
             if (stack.isEmpty() && cStack.isEmpty()) {
                 return -1;
             }

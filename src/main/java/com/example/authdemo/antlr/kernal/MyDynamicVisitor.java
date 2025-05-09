@@ -116,7 +116,7 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     @Override
     public Object visitOperatorExpr(AntlrDemoParser.OperatorExprContext ctx) {
         final Object left = visit(ctx.expr(0));
-        Supplier<?> right = () -> visit(ctx.expr(1));
+        final Supplier<?> right = () -> visit(ctx.expr(1));
         final String opText = ctx.op.getText();
         switch (opText) {
             case "==":

@@ -19,7 +19,7 @@ public class MapModifyLearn {
      */
     @Test
     public void hashMap() {
-        HashMap<String, String> map = new HashMap<>();
+        final HashMap<String, String> map = new HashMap<>();
         initMap(map);
 
         // 可以更新
@@ -64,7 +64,7 @@ public class MapModifyLearn {
      */
     @Test
     public void concurrentHashMap() {
-        Map<String, String> map = new ConcurrentHashMap<>();
+        final Map<String, String> map = new ConcurrentHashMap<>();
         initMap(map);
 
         // 可以更新
@@ -103,6 +103,6 @@ public class MapModifyLearn {
         map.clear();
         map.put("1", "1");
         map.put("2", "2");
-        System.out.println("init map:"+ map);
+        System.out.println("init map:" + map);
     }
 }

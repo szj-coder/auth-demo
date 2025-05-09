@@ -23,7 +23,7 @@ public class PhoneNumUtilTest {
 
     @Test
     public void checkPhoneNumber() {
-        ArrayList<String> numList = new ArrayList<>();
+        final ArrayList<String> numList = new ArrayList<>();
         numList.add("18566666666");
         numList.add("8618566666666");
         numList.add("+8618566666666");
@@ -44,15 +44,15 @@ public class PhoneNumUtilTest {
      */
     @Test
     public void getRegionCodeForNumber() throws NumberParseException {
-        String phone = "+13474461111";
-        PhoneNumberUtil instance = PhoneNumberUtil.getInstance();
-        Phonenumber.PhoneNumber phoneNumber = instance.parse(phone, "CN");
+        final String phone = "+13474461111";
+        final PhoneNumberUtil instance = PhoneNumberUtil.getInstance();
+        final Phonenumber.PhoneNumber phoneNumber = instance.parse(phone, "CN");
         System.out.println(instance.getRegionCodeForNumber(phoneNumber));
     }
 
     @Test
     public void checkPhoneNumberError() {
-        ArrayList<String> numList = new ArrayList<>();
+        final ArrayList<String> numList = new ArrayList<>();
         numList.add("185666666661");
         numList.add("+86185666666611");
         numList.add("+86115666666611");
@@ -72,7 +72,7 @@ public class PhoneNumUtilTest {
      */
     @Test
     public void benchmarkTest() {
-        ArrayList<String> numList = new ArrayList<>();
+        final ArrayList<String> numList = new ArrayList<>();
         numList.add("18566666666");
         numList.add("18511111111");
         numList.add("18522222222");
@@ -80,22 +80,22 @@ public class PhoneNumUtilTest {
         numList.add("18544444444");
         numList.add("18555555555");
         // 座机
-        int total = 100;
+        final int total = 100;
         int num = total;
         int sum = 0;
         while (num-- > 0) {
             int i = 0;
             int count = 0;
-            long start = System.currentTimeMillis();
+            final long start = System.currentTimeMillis();
             while (count++ < 10000) {
 //                boolean result = validPhoneNumber(numList.get(i));
-                boolean result = validPhoneNumber2(numList.get(i));
+                final boolean result = validPhoneNumber2(numList.get(i));
 //            System.out.println(number.toString());
                 Assert.isTrue(result, numList.get(i));
                 i++;
                 i = i % numList.size();
             }
-            long time = System.currentTimeMillis() - start;
+            final long time = System.currentTimeMillis() - start;
             sum += time;
 //            System.out.println(time);
         }
@@ -103,7 +103,7 @@ public class PhoneNumUtilTest {
     }
 
     private static boolean validPhoneNumber(String mobile) {
-        PhoneNumberUtil instance = PhoneNumberUtil.getInstance();
+        final PhoneNumberUtil instance = PhoneNumberUtil.getInstance();
         Phonenumber.PhoneNumber number = null;
         try {
             number = instance.parse(mobile, "CN");
@@ -123,11 +123,11 @@ public class PhoneNumUtilTest {
      */
     @Test
     public void countryList() {
-        Set<String> set = PhoneNumberUtil.getInstance().getSupportedRegions();
-        String[] arr = set.toArray(new String[0]);
+        final Set<String> set = PhoneNumberUtil.getInstance().getSupportedRegions();
+        final String[] arr = set.toArray(new String[0]);
 
         for (String s : arr) {
-            Locale locale = new Locale("en", s);
+            final Locale locale = new Locale("en", s);
             System.out.printf("lib country:%5s :%5s :%-1s\n", s, PhoneNumberUtil.getInstance().getCountryCodeForRegion(s), locale.getDisplayCountry());
         }
         System.out.println(arr.length);

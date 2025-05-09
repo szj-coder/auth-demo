@@ -18,11 +18,11 @@ public class ProcessingHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        RequestData requestData = (RequestData) msg;
-        ResponseData responseData = new ResponseData();
+        final RequestData requestData = (RequestData) msg;
+        final ResponseData responseData = new ResponseData();
         responseData.setResponseId(requestData.getId());
         responseData.setDesc(Boolean.TRUE.toString());
-        ChannelFuture future = ctx.writeAndFlush(responseData);
+        final ChannelFuture future = ctx.writeAndFlush(responseData);
         future.addListener(ChannelFutureListener.CLOSE);
         System.out.println("收到讯息 address:" + ctx.channel().remoteAddress() + " msg:" + requestData);
     }

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ArrayListNewVsCopy {
 
     private static void testClone(ArrayList<Integer> list, int num) {
-        long start = System.currentTimeMillis();
+        final long start = System.currentTimeMillis();
         ArrayList<Integer> copys = null;
         for (int i = 0; i < num; i++) {
             copys = (ArrayList<Integer>) list.clone();
@@ -32,7 +32,7 @@ public class ArrayListNewVsCopy {
     }
 
     private static void testNew(ArrayList<Integer> list, int num) {
-        long start = System.currentTimeMillis();
+        final long start = System.currentTimeMillis();
         ArrayList<Integer> copys = null;
         for (int i = 0; i < num; i++) {
             copys = new ArrayList<>(list);
@@ -41,9 +41,9 @@ public class ArrayListNewVsCopy {
     }
 
     public static void main(String[] args) {
-        int size = (int) 1e4;
-        ArrayList<Integer> nums = new ArrayList<>(size);
-        int num = (int) 1e5;
+        final int size = (int) 1e4;
+        final ArrayList<Integer> nums = new ArrayList<>(size);
+        final int num = (int) 1e5;
         for (int i = 0; i < size; i++) {
             nums.add(1);
         }

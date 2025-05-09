@@ -17,11 +17,11 @@ public class PulsarProducer {
 
     @SneakyThrows
     public static void main(String[] args) {
-        PulsarClient client = PulsarClient.builder().serviceUrl("pulsar://localhost:6650").build();
-        Producer<String> producer = client.newProducer(Schema.STRING).topic("test").create();
-        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+        final PulsarClient client = PulsarClient.builder().serviceUrl("pulsar://localhost:6650").build();
+        final Producer<String> producer = client.newProducer(Schema.STRING).topic("test").create();
+        final CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
             for (int i = 0; i < 100000; i++) {
-                long date = System.currentTimeMillis();
+                final long date = System.currentTimeMillis();
                 System.out.println("send: " + new Date(date));
                 try {
                     producer.send(Long.toString(date));

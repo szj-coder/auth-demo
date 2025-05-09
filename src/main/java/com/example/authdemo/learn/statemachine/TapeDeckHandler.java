@@ -29,8 +29,8 @@ public class TapeDeckHandler {
     }
 
     @Transitions({
-            @Transition(on = "play", in = LOADED, next = PLAYING),
-            @Transition(on = "play", in = PAUSED, next = PLAYING)
+                    @Transition(on = "play", in = LOADED, next = PLAYING),
+                    @Transition(on = "play", in = PAUSED, next = PLAYING)
     })
     public void playTape() {
         log.info("Playing tape");
@@ -53,8 +53,8 @@ public class TapeDeckHandler {
 
     public static void main(String[] args) {
         TapeDeckHandler handler = new TapeDeckHandler();
-        StateMachine sm = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.EMPTY, handler);
-        TapeDeck deck = new StateMachineProxyBuilder().create(TapeDeck.class, sm);
+        final StateMachine sm = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.EMPTY, handler);
+        final TapeDeck deck = new StateMachineProxyBuilder().create(TapeDeck.class, sm);
 
         deck.load("The Knife - Silent Shout");
         deck.play();
@@ -65,8 +65,8 @@ public class TapeDeckHandler {
 
         log.info("-------------------------");
         handler = new TapeDeckHandler();
-        StateMachine sm1 = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.LOADED, handler);
-        TapeDeck deck1 = new StateMachineProxyBuilder().create(TapeDeck.class, sm1);
+        final StateMachine sm1 = StateMachineFactory.getInstance(Transition.class).create(TapeDeckHandler.LOADED, handler);
+        final TapeDeck deck1 = new StateMachineProxyBuilder().create(TapeDeck.class, sm1);
         deck1.eject();
         log.info(sm1.getStates().toString());
     }

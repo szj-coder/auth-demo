@@ -5,7 +5,7 @@ import java.util.Stack;
 public class L155MinStack {
 
     public static void main(String[] args) {
-        MinStack minStack = new MinStack();
+        final MinStack minStack = new MinStack();
         minStack.push(-2);
         minStack.push(0);
         minStack.push(-3);

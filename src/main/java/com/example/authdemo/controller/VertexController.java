@@ -11,7 +11,7 @@ public class VertexController {
     private static final Vertx VERTX = Vertx.vertx();
 
     public static void main(String[] args) {
-        HttpServer httpServer = VERTX.createHttpServer();
+        final HttpServer httpServer = VERTX.createHttpServer();
         httpServer.requestHandler(request -> {
             request.response().end("vertex hello world!");
         });

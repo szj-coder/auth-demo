@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FutureTest {
     @SneakyThrows
     public static void main(String[] args) {
-        AtomicInteger i = new AtomicInteger();
-        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+        final AtomicInteger i = new AtomicInteger();
+        final CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("future => " + i.getAndIncrement());
             return i.get();
         });

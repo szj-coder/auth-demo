@@ -20,7 +20,7 @@ public class JvmLearn {
 
     @Test
     public void heapOverflow() {
-        ArrayList<CustomObj> list = new ArrayList<>();
+        final ArrayList<CustomObj> list = new ArrayList<>();
         while (true) {
             list.add(new CustomObj());
         }
@@ -33,7 +33,7 @@ public class JvmLearn {
 
     @Test
     public void javaVMStackSOF() {
-        JvmLearn jvmLearn = new JvmLearn();
+        final JvmLearn jvmLearn = new JvmLearn();
         while (true) {
             jvmLearn.stackLeak();
         }

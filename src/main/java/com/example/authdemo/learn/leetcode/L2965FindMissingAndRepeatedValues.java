@@ -7,8 +7,8 @@ package com.example.authdemo.learn.leetcode;
 public class L2965FindMissingAndRepeatedValues {
 
     public int[] findMissingAndRepeatedValues(int[][] grid) {
-        int n = grid.length;
-        int[] mark = new int[n * n];
+        final int n = grid.length;
+        final int[] mark = new int[n * n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 mark[grid[i][j] - 1]++;
@@ -27,7 +27,7 @@ public class L2965FindMissingAndRepeatedValues {
     }
 
     public static void main(String[] args) {
-        L2965FindMissingAndRepeatedValues l = new L2965FindMissingAndRepeatedValues();
+        final L2965FindMissingAndRepeatedValues l = new L2965FindMissingAndRepeatedValues();
         int[] result = l.findMissingAndRepeatedValues(new int[][]{{1, 3}, {2, 2}});
         System.out.println(result[0] + " " + result[1]);
 

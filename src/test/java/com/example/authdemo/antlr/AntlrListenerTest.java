@@ -37,10 +37,10 @@ public class AntlrListenerTest {
     }
 
     private static Object execute(String expression, Map<String, Object> map) {
-        CharStream input = CharStreams.fromString(expression);
-        AntlrDemoLexer lexer = new AntlrDemoLexer(input);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        AntlrDemoParser parser = new AntlrDemoParser(tokens);
+        final CharStream input = CharStreams.fromString(expression);
+        final AntlrDemoLexer lexer = new AntlrDemoLexer(input);
+        final CommonTokenStream tokens = new CommonTokenStream(lexer);
+        final AntlrDemoParser parser = new AntlrDemoParser(tokens);
         final MyAntlrListener listener = new MyAntlrListener();
         parser.addParseListener(listener);
         parser.script();
@@ -51,10 +51,10 @@ public class AntlrListenerTest {
      * listener 另一种遍历方式
      */
     private static Object executeTest(String expression) {
-        CharStream input = CharStreams.fromString(expression);
-        AntlrDemoLexer lexer = new AntlrDemoLexer(input);
+        final CharStream input = CharStreams.fromString(expression);
+        final AntlrDemoLexer lexer = new AntlrDemoLexer(input);
         final CommonTokenStream tokens = new CommonTokenStream(lexer);
-        AntlrDemoParser parser = new AntlrDemoParser(tokens);
+        final AntlrDemoParser parser = new AntlrDemoParser(tokens);
         final ParseTreeWalker walker = new ParseTreeWalker();
         final MyAntlrListener listener = new MyAntlrListener();
         walker.walk(listener, parser.script());

@@ -5,9 +5,9 @@ package com.example.authdemo.learn.designPattern;
  */
 public class ChainOfResponsibilityPattern {
     public static AbstractLogger build() {
-        ConsoleLogger consoleLogger = new ConsoleLogger(AbstractLogger.ERROR);
-        ErrorLogger errorLogger = new ErrorLogger(AbstractLogger.DEBUG);
-        FileLogger fileLogger = new FileLogger(AbstractLogger.INFO);
+        final ConsoleLogger consoleLogger = new ConsoleLogger(AbstractLogger.ERROR);
+        final ErrorLogger errorLogger = new ErrorLogger(AbstractLogger.DEBUG);
+        final FileLogger fileLogger = new FileLogger(AbstractLogger.INFO);
 
         consoleLogger.setNextLogger(errorLogger);
         errorLogger.setNextLogger(fileLogger);
@@ -16,7 +16,7 @@ public class ChainOfResponsibilityPattern {
     }
 
     public static void main(String[] args) {
-        AbstractLogger logger = build();
+        final AbstractLogger logger = build();
 
         logger.logMessage(AbstractLogger.ERROR, "testError");
         System.out.println();

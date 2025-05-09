@@ -8,10 +8,10 @@ import java.util.Arrays;
  */
 public class L198_Rob {
     public static int rob(int[] nums) {
-        if (nums.length ==1) {
+        if (nums.length == 1) {
             return nums[0];
         }
-        int[] a = new int[nums.length];
+        final int[] a = new int[nums.length];
         a[0] = nums[0];
         a[1] = Math.max(nums[0], nums[1]);
         for (int i = 2; i < nums.length; i++) {

@@ -10,10 +10,10 @@ import java.util.List;
  */
 public class L46_Permute {
     public static List<List<Integer>> permute(int[] nums) {
-        ArrayList<List<Integer>> results = new ArrayList<>();
+        final ArrayList<List<Integer>> results = new ArrayList<>();
         Arrays.sort(nums);
-        boolean[] mark = new boolean[nums.length];
-        Integer[] result = new Integer[nums.length];
+        final boolean[] mark = new boolean[nums.length];
+        final Integer[] result = new Integer[nums.length];
         for (int i = 0; i < nums.length; i++) {
             if (mark[i] || (i > 0 && nums[i] == nums[i - 1] && !mark[i - 1])) {
                 continue;
@@ -43,7 +43,7 @@ public class L46_Permute {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> results = permute(new int[]{1, 1, 2});
+        final List<List<Integer>> results = permute(new int[]{1, 1, 2});
         System.out.println(results);
     }
 

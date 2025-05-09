@@ -15,7 +15,7 @@ public class L23_MergeKLists {
     }
 
     static ListNode[] genListNode(Integer[][] list) {
-        ListNode[] listNode = new ListNode[list.length];
+        final ListNode[] listNode = new ListNode[list.length];
         for (int i = 0; i < list.length; i++) {
             ListNode currentNode = null;
             for (int j = 0; j < list[i].length; j++) {

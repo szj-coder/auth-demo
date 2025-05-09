@@ -1,11 +1,11 @@
 package com.example.authdemo.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldNameConstants;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
