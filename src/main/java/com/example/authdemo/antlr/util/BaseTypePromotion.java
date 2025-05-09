@@ -23,7 +23,7 @@ public class BaseTypePromotion {
         isBaseOrError(a);
         final int maxOrder = promotionOrder(a);
         if (maxOrder < 0) {
-            throw new RuntimeException(String.format("不支持 -%s操作", a));
+            throw new RuntimeException("不支持 -%s操作".formatted(a));
         }
         if (isStr(maxOrder)) {
             return "-" + String.valueOf(a);
@@ -47,13 +47,13 @@ public class BaseTypePromotion {
         try {
             anyNotNullOrError(a, b);
         } catch (Exception e) {
-            throw new RuntimeException(String.format("a=%s b=%s 空值不支持compareTo", a, b), e);
+            throw new RuntimeException("a=%s b=%s 空值不支持compareTo".formatted(a, b), e);
         }
         isBaseOrError(a);
         isBaseOrError(b);
         final int maxOrder = maxPromotionOrder(a, b);
         if (maxOrder < 0) {
-            throw new RuntimeException(String.format("a=%s b=%s 类型不识别", a, b));
+            throw new RuntimeException("a=%s b=%s 类型不识别".formatted(a, b));
         }
         final Class<? extends Serializable> maxType = baseClassList.get(maxOrder);
         if (isStr(maxType)) {
@@ -79,7 +79,7 @@ public class BaseTypePromotion {
     public static Object plus(Object a, Object b) {
         final int maxOrder = maxPromotionOrder(a, b);
         if (maxOrder < 0) {
-            throw new RuntimeException(String.format("a=%s b=%s 类型不识别", a, b));
+            throw new RuntimeException("a=%s b=%s 类型不识别".formatted(a, b));
         }
         final Class<? extends Serializable> maxType = baseClassList.get(maxOrder);
         if (isStr(maxType)) {
@@ -90,7 +90,7 @@ public class BaseTypePromotion {
             try {
                 anyNotNullOrError(a, b);
             } catch (Exception e) {
-                throw new RuntimeException(String.format("a=%s + b=%s 不支持空值运算", a, b), e);
+                throw new RuntimeException("a=%s + b=%s 不支持空值运算".formatted(a, b), e);
             }
             isBaseOrError(a);
             isBaseOrError(b);
@@ -115,7 +115,7 @@ public class BaseTypePromotion {
         try {
             anyNotNullOrError(a, b);
         } catch (Exception e) {
-            throw new RuntimeException(String.format("a=%s - b=%s 不支持空值运算", a, b), e);
+            throw new RuntimeException("a=%s - b=%s 不支持空值运算".formatted(a, b), e);
         }
 
         isNumOrError(a);
@@ -142,7 +142,7 @@ public class BaseTypePromotion {
         try {
             anyNotNullOrError(a, b);
         } catch (Exception e) {
-            throw new RuntimeException(String.format("a=%s * b=%s 不支持空值运算", a, b), e);
+            throw new RuntimeException("a=%s * b=%s 不支持空值运算".formatted(a, b), e);
         }
 
         isNumOrError(a);
@@ -169,7 +169,7 @@ public class BaseTypePromotion {
         try {
             anyNotNullOrError(a, b);
         } catch (Exception e) {
-            throw new RuntimeException(String.format("a=%s / b=%s 不支持空值运算", a, b), e);
+            throw new RuntimeException("a=%s / b=%s 不支持空值运算".formatted(a, b), e);
         }
 
         isNumOrError(a);
@@ -196,7 +196,7 @@ public class BaseTypePromotion {
         try {
             anyNotNullOrError(a, b);
         } catch (Exception e) {
-            throw new RuntimeException(String.format("a=%s %% b=%s 不支持空值运算", a, b), e);
+            throw new RuntimeException("a=%s %% b=%s 不支持空值运算".formatted(a, b), e);
         }
 
         isNumOrError(a);
@@ -248,7 +248,7 @@ public class BaseTypePromotion {
 
     public static void isBaseOrError(Object obj) {
         if (obj != null && !isBase(obj)) {
-            throw new RuntimeException(String.format("%s类型不是基础类型", obj.getClass()));
+            throw new RuntimeException("%s类型不是基础类型".formatted(obj.getClass()));
         }
     }
 
@@ -258,7 +258,7 @@ public class BaseTypePromotion {
 
     public static void isBaseOrError(Class<?> clazz) {
         if (clazz != null && !isBase(clazz)) {
-            throw new RuntimeException(String.format("%s类型不是基础类型", clazz));
+            throw new RuntimeException("%s类型不是基础类型".formatted(clazz));
         }
     }
 
@@ -284,7 +284,7 @@ public class BaseTypePromotion {
 
     public static void isNumOrError(Object obj, String msg) {
         if (!isNum(obj)) {
-            throw new RuntimeException(String.format("%s 不是数值类型", msg));
+            throw new RuntimeException("%s 不是数值类型".formatted(msg));
         }
     }
 
@@ -294,7 +294,7 @@ public class BaseTypePromotion {
 
     public static void isNumOrError(Class<?> clazz, String msg) {
         if (!isNum(clazz)) {
-            throw new RuntimeException(String.format("%s 不是数值类型", msg));
+            throw new RuntimeException("%s 不是数值类型".formatted(msg));
         }
     }
 

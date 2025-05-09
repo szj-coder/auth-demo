@@ -1,9 +1,8 @@
 package com.example.authdemo.learn.jvm;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.pulsar.shade.org.asynchttpclient.util.Assertions;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +27,7 @@ public class MapModifyLearn {
             System.out.println(entry);
             map.put("2", "3");
         }
-        Assert.assertEquals("{1=1, 2=3}", map.toString());
+        Assertions.assertEquals("{1=1, 2=3}", map.toString());
 
         // 不可以删除
         initMap(map);
@@ -37,11 +36,11 @@ public class MapModifyLearn {
                 System.out.println(entry);
                 map.remove("2");
             }
-            Assert.fail();
+            Assertions.fail();
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
-        Assert.assertEquals("{1=1}", map.toString());
+        Assertions.assertEquals("{1=1}", map.toString());
 
         // 新增
         initMap(map);
@@ -50,7 +49,7 @@ public class MapModifyLearn {
                 System.out.println(entry);
                 map.put("3", "3");
             }
-            Assert.fail();
+            Assertions.fail();
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
@@ -73,7 +72,7 @@ public class MapModifyLearn {
             System.out.println(entry);
             map.put("2", "3");
         }
-        Assert.assertEquals("{1=1, 2=3}", map.toString());
+        Assertions.assertEquals("{1=1, 2=3}", map.toString());
 
         // 不可以删除
         initMap(map);
@@ -85,7 +84,7 @@ public class MapModifyLearn {
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
-        Assert.assertEquals("{1=1}", map.toString());
+        Assertions.assertEquals("{1=1}", map.toString());
 
         // 新增
         initMap(map);
@@ -97,7 +96,7 @@ public class MapModifyLearn {
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
-        Assert.assertEquals("{1=1, 2=2, 3=3}", map.toString());
+        Assertions.assertEquals("{1=1, 2=2, 3=3}", map.toString());
     }
 
     public void initMap(Map<String, String> map) {

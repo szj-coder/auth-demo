@@ -146,7 +146,7 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
     public Object visitLogicalOperator(AntlrDemoParser.LogicalOperatorContext ctx) {
         final Object visit = visit(ctx.expr());
         if (visit == null || visit.getClass() != Boolean.class) {
-            throw new RuntimeException(String.format("%s 类型不支持取反操作", visit));
+            throw new RuntimeException("%s 类型不支持取反操作".formatted(visit));
         }
         return Boolean.FALSE == visit;
     }
@@ -178,7 +178,7 @@ public class MyDynamicVisitor extends AntlrDemoBaseVisitor<Object> {
         } else if (ctx.VARIABLE() != null) {
             final TerminalNode variable = ctx.VARIABLE();
             if (!varContext.containsKey(ctx.getText())) {
-                throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
+                throw new RuntimeException("变量:%s 不存在".formatted(ctx.getText()));
             }
             return varContext.getValue(variable.getText());
         } else if (ctx.number() != null) {

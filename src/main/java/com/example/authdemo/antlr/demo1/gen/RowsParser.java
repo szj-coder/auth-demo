@@ -138,17 +138,17 @@ public class RowsParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof RowsListener) ((RowsListener) listener).enterFile(this);
+            if (listener instanceof RowsListener rowsListener) rowsListener.enterFile(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof RowsListener) ((RowsListener) listener).exitFile(this);
+            if (listener instanceof RowsListener rowsListener) rowsListener.exitFile(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof RowsVisitor) return ((RowsVisitor<? extends T>) visitor).visitFile(this);
+            if (visitor instanceof RowsVisitor<? extends T> rowsVisitor) return rowsVisitor.visitFile(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -200,17 +200,17 @@ public class RowsParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof RowsListener) ((RowsListener) listener).enterRow(this);
+            if (listener instanceof RowsListener rowsListener) rowsListener.enterRow(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof RowsListener) ((RowsListener) listener).exitRow(this);
+            if (listener instanceof RowsListener rowsListener) rowsListener.exitRow(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof RowsVisitor) return ((RowsVisitor<? extends T>) visitor).visitRow(this);
+            if (visitor instanceof RowsVisitor<? extends T> rowsVisitor) return rowsVisitor.visitRow(this);
             else return visitor.visitChildren(this);
         }
     }

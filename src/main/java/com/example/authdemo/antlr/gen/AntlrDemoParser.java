@@ -149,17 +149,17 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterScript(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterScript(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitScript(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitScript(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor) return ((AntlrDemoVisitor<? extends T>) visitor).visitScript(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor) return demoVisitor.visitScript(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -231,18 +231,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterStatements(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterStatements(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitStatements(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitStatements(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitStatements(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitStatements(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -348,18 +348,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterStatementBlock(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterStatementBlock(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitStatementBlock(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitStatementBlock(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitStatementBlock(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitStatementBlock(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -404,18 +404,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterStatement(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterStatement(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitStatement(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitStatement(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitStatement(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitStatement(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -482,18 +482,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterMultOrDiv(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterMultOrDiv(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitMultOrDiv(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitMultOrDiv(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitMultOrDiv(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitMultOrDiv(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -514,18 +514,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterLogicalOperator(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterLogicalOperator(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitLogicalOperator(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitLogicalOperator(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitLogicalOperator(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitLogicalOperator(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -576,18 +576,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterOperatorExpr(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterOperatorExpr(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitOperatorExpr(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitOperatorExpr(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitOperatorExpr(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitOperatorExpr(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -616,18 +616,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterPlusOrMinus(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterPlusOrMinus(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitPlusOrMinus(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitPlusOrMinus(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitPlusOrMinus(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitPlusOrMinus(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -648,18 +648,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterTernaryOperator(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterTernaryOperator(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitTernaryOperator(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitTernaryOperator(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitTernaryOperator(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitTernaryOperator(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -676,18 +676,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterFactorExpr(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterFactorExpr(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitFactorExpr(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitFactorExpr(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitFactorExpr(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitFactorExpr(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -712,18 +712,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterParenExpr(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterParenExpr(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitParenExpr(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitParenExpr(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitParenExpr(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitParenExpr(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -959,18 +959,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterObjFactory(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterObjFactory(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitObjFactory(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitObjFactory(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitObjFactory(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitObjFactory(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -1055,18 +1055,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterNumFactory(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterNumFactory(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitNumFactory(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitNumFactory(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitNumFactory(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitNumFactory(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -1154,17 +1154,17 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterIf(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterIf(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitIf(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitIf(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor) return ((AntlrDemoVisitor<? extends T>) visitor).visitIf(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor) return demoVisitor.visitIf(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -1205,17 +1205,17 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterIfElse(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterIfElse(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitIfElse(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitIfElse(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor) return ((AntlrDemoVisitor<? extends T>) visitor).visitIfElse(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor) return demoVisitor.visitIfElse(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -1256,18 +1256,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterIfElseIf(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterIfElseIf(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitIfElseIf(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitIfElseIf(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitIfElseIf(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitIfElseIf(this);
             else return visitor.visitChildren(this);
         }
     }
@@ -1367,18 +1367,18 @@ public class AntlrDemoParser extends Parser {
 
         @Override
         public void enterRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).enterVarExpression(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.enterVarExpression(this);
         }
 
         @Override
         public void exitRule(ParseTreeListener listener) {
-            if (listener instanceof AntlrDemoListener) ((AntlrDemoListener) listener).exitVarExpression(this);
+            if (listener instanceof AntlrDemoListener demoListener) demoListener.exitVarExpression(this);
         }
 
         @Override
         public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof AntlrDemoVisitor)
-                return ((AntlrDemoVisitor<? extends T>) visitor).visitVarExpression(this);
+            if (visitor instanceof AntlrDemoVisitor<? extends T> demoVisitor)
+                return demoVisitor.visitVarExpression(this);
             else return visitor.visitChildren(this);
         }
     }

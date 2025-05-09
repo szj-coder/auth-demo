@@ -16,12 +16,12 @@ public class MyAntlrListener extends AntlrDemoBaseListener {
 
     @Override
     public void enterEveryRule(ParserRuleContext ctx) {
-        log.info(String.format("enter %20.20s >> %s", ctx.getClass().getSimpleName(), ctx.getText()));
+        log.info("enter %20.20s >> %s".formatted(ctx.getClass().getSimpleName(), ctx.getText()));
     }
 
     @Override
     public void exitEveryRule(ParserRuleContext ctx) {
-        log.info(String.format("exit %20.20s >> %s", ctx.getClass().getSimpleName(), ctx.getText()));
+        log.info("exit %20.20s >> %s".formatted(ctx.getClass().getSimpleName(), ctx.getText()));
     }
 
     @Override
@@ -68,7 +68,7 @@ public class MyAntlrListener extends AntlrDemoBaseListener {
         } else if (ctx.VARIABLE() != null) {
             final TerminalNode variable = ctx.VARIABLE();
             if (!varContext.containsKey(ctx.getText())) {
-                throw new RuntimeException(String.format("变量:%s 不存在", ctx.getText()));
+                throw new RuntimeException("变量:%s 不存在".formatted(ctx.getText()));
             }
             result = varContext.getValue(variable.getText());
         }
