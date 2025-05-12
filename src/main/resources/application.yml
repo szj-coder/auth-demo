@@ -20,6 +20,13 @@ spring:
   thymeleaf:
     cache: false
   sql.init.platform: h2
+  ai:
+    openai:
+      base-url: https://api.deepseek.com
+      api-key: ${api-key}
+      chat:
+        options:
+          model: deepseek-chat
 server:
   port: 8080
   servlet:

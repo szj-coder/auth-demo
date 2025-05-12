@@ -1,0 +1,10 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: demo
+recipeList:
+#  - org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_4
+#  - org.openrewrite.java.migrate.UpgradeBuildToJava17
+#  - org.openrewrite.java.format.AutoFormat
+#  - org.openrewrite.java.OrderImports
+#  - org.openrewrite.staticanalysis.AddSerialAnnotationToSerialVersionUID
+#  - org.openrewrite.staticanalysis.FinalizeLocalVariables
+  - org.openrewrite.java.migrate.UpgradeBuildToJava21
