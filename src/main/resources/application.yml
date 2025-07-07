@@ -27,6 +27,9 @@ spring:
       chat:
         options:
           model: deepseek-chat
+  output:
+    ansi:
+      enabled: always
 server:
   port: 8080
   servlet:
