@@ -10,16 +10,15 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    open-in-view: true
   datasource:
-    url: jdbc:h2:mem:dbtest
+    url: jdbc:mysql://${mysql.host}:3306/demo?useSSL=false&serverTimezone=UTC
     username: root
-    password: 123456
-    driverClassName: org.h2.Driver
-    settings:
-      web-allow-others: true
+    password: ${mysql.password}
+    driverClassName: com.mysql.cj.jdbc.Driver
   thymeleaf:
     cache: false
-  sql.init.platform: h2
+  sql.init.platform: mysql
   ai:
     openai:
       base-url: https://api.deepseek.com
@@ -30,6 +29,9 @@ spring:
   output:
     ansi:
       enabled: always
+  data:
+    jdbc:
+      dialect: mysql
 server:
   port: 8080
   servlet:
