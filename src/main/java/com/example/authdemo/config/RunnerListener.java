@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -27,6 +28,11 @@ public class RunnerListener implements ApplicationListener<ApplicationStartedEve
     @Override
     public void onApplicationEvent(@Nonnull ApplicationStartedEvent start) {
         log.info("start listener start event");
+        List<Account> all = accountDao.findAll();
+        if (!all.isEmpty()) {
+            log.info("account already exists, skip init");
+            return;
+        }
         final ArrayList<Account> accounts = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             final Account account = new Account();
