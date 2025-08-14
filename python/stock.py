@@ -270,12 +270,15 @@ class StockPriceCalculator:
                 print(f"\n处理第 {index + 1}/{len(self.df)} 条记录: {row['股票名称']} ({row['股票代码']})")
 
                 stock_code = str(row['股票代码']).strip()
+                self.df.at[index, '股票代码'] = self.convert_stock_code(stock_code)
                 base_date = row['添加日期']
 
-                df = ak.stock_info_a_code_name()
-                stock_name = df.loc[df['code'] == self.convert_stock_code(stock_code), 'name'].values[0]
-                self.df.at[index, '股票名称'] = stock_name
-                self.df.at[index, '股票代码'] = self.convert_stock_code(stock_code)
+                if pd.isna(row['股票名称']):
+                    print(f"  重新获取股票名称:{row['股票名称']}")
+                    df = ak.stock_info_a_code_name()
+                    stock_name = df.loc[df['code'] == self.convert_stock_code(stock_code), 'name'].values[0]
+                    print(f"  获取股票名称：>>>{stock_name}")
+                    self.df.at[index, '股票名称'] = stock_name
 
                 if pd.isna(base_date) or base_date == 'NaT':
                     print(f"  跳过：添加日期为空")
@@ -388,8 +391,8 @@ class StockPriceCalculator:
             print(f"\n✓ 结果已成功保存到: {output_file}")
             print(f"共保存 {len(self.df)} 条记录")
         except Exception as e:
-            print(f"保存文件失败: {e}")
-            print("请确保文件未被其他程序打开，且有写入权限")
+            print(f"\033[31m保存文件失败: {e}\033[0m")
+            print("\033[31m请确保文件未被其他程序打开，且有写入权限\033[0m")
 
     def display_summary(self):
         """显示计算结果摘要"""
