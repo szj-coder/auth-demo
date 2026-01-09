@@ -44,7 +44,7 @@ public class DsTranslate implements Translate {
                 log.error("response code:{}, responseBody:{}", response.statusCode(), response.body());
                 throw new RuntimeException("访问ds出错");
             }
-            return JsonUtils.jsonMapper.readTree(response.body()).findValue("choices").findValue("message").findValues("content");
+            return JsonUtils.jsonMapper.readTree(response.body()).findValue("choices").findValue("message").findValues("content").get(0).asText();
         } catch (IOException e) {
             throw new RuntimeException("访问异常", e);
         } catch (InterruptedException e) {
