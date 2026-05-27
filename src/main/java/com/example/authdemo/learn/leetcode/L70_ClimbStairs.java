@@ -1,12 +1,10 @@
 package com.example.authdemo.learn.leetcode;
 
-import java.util.Arrays;
-
 /**
  * 70. 爬楼梯
  * {@see https://leetcode.cn/problems/climbing-stairs/?utm_source=LCUS&utm_medium=ip_redirect&utm_campaign=transfer2china}
  */
-public class L70ClimbStairs {
+public class L70_ClimbStairs {
     /**
      * 3
      * 1 1 1

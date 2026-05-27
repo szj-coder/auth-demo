@@ -2,7 +2,7 @@ package com.example.authdemo.learn.leetcode;
 
 import java.util.Stack;
 
-public class L09CQueue {
+public class L09_CQueue {
 
     public static void main(String[] args) {
         final CQueue cQueue = new CQueue();

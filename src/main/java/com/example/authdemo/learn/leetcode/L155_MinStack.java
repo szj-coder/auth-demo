@@ -2,7 +2,7 @@ package com.example.authdemo.learn.leetcode;
 
 import java.util.Stack;
 
-public class L155MinStack {
+public class L155_MinStack {
 
     public static void main(String[] args) {
         final MinStack minStack = new MinStack();

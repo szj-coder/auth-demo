@@ -3,7 +3,7 @@ package com.example.authdemo.learn.leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class L65Solution {
+public class L65_Solution {
 
     public boolean isNumber(String s) {
         Map<State, Map<CharType, State>> transfer = new HashMap<State, Map<CharType, State>>();
@@ -118,7 +118,7 @@ public class L65Solution {
 
     public static void main(String[] args) {
         String[] list = new String[]{"0", "2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"};
-        L65Solution l65Solution = new L65Solution();
+        L65_Solution l65Solution = new L65_Solution();
         for (String s : list) {
             System.out.printf("%s: %s\n", s, l65Solution.isNumber(s));
         }

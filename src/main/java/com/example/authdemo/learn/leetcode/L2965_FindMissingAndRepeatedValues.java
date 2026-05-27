@@ -4,7 +4,7 @@ package com.example.authdemo.learn.leetcode;
  * 2965. 找出缺失和重复的数字
  * <a href="https://leetcode.cn/problems/find-missing-and-repeated-values/description/?envType=daily-question&envId=2024-05-31">...</a>
  */
-public class L2965FindMissingAndRepeatedValues {
+public class L2965_FindMissingAndRepeatedValues {
 
     public int[] findMissingAndRepeatedValues(int[][] grid) {
         final int n = grid.length;
@@ -27,7 +27,7 @@ public class L2965FindMissingAndRepeatedValues {
     }
 
     public static void main(String[] args) {
-        final L2965FindMissingAndRepeatedValues l = new L2965FindMissingAndRepeatedValues();
+        final L2965_FindMissingAndRepeatedValues l = new L2965_FindMissingAndRepeatedValues();
         int[] result = l.findMissingAndRepeatedValues(new int[][]{{1, 3}, {2, 2}});
         System.out.println(result[0] + " " + result[1]);
 
