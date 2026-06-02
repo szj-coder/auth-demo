@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 128. 最长连续序列
  * {@see https://leetcode.cn/problems/longest-consecutive-sequence/description/}
  */
-public class L128_Solution {
+public class L128_LongestConsecutive {
     public int longestConsecutive(int[] nums) {
         Arrays.sort(nums);
         int max = 0;
@@ -30,7 +30,7 @@ public class L128_Solution {
     }
 
     public static void main(String[] args) {
-        L128_Solution l128Solution = new L128_Solution();
+        L128_LongestConsecutive l128Solution = new L128_LongestConsecutive();
         int result = l128Solution.longestConsecutive(new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1});
         System.out.println(result);
         result = l128Solution.longestConsecutive(new int[]{1,0,1,2});
